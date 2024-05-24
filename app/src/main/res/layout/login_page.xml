@@ -53,22 +53,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/enter_pw"
-            android:layout_toLeftOf="@+id/findID_PW_btn"
-            android:text="First register"
+            android:layout_toLeftOf="@+id/find_em_pw_btn"
+            android:text="회원가입"
             android:textColor="@color/black"
             android:background="@android:color/transparent"
             />
 
         <Button
-            android:id="@+id/findID_PW_btn"
+            android:id="@+id/find_em_pw_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/enter_pw"
             android:layout_alignRight="@+id/enter_pw"
-            android:text="Find PW"
+            android:text="email / pw 찾기"
             android:textColor="@color/black"
             android:background="@android:color/transparent"
-
             />
 
     </RelativeLayout>
@@ -80,11 +79,11 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
-        android:text="sign in"
+        android:text="로그인"
         />
 
     <Button
-        android:id="@+id/google_btn"
+        android:id="@+id/sign_google_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
