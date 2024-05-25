@@ -43,6 +43,12 @@ public class Register extends Activity {
                  */
 
                 // 2. else : db에 저장
+                /*
+                DB 저장 code
+
+                DB 저장 후 로그인 화면으로 이동
+                startActivity(intent);
+                 */
             }
         });
     }

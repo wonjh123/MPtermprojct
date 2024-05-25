@@ -53,19 +53,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/enter_pw"
-            android:layout_toLeftOf="@+id/find_em_pw_btn"
+            android:layout_toLeftOf="@+id/find_pw_btn"
             android:text="회원가입"
             android:textColor="@color/black"
             android:background="@android:color/transparent"
             />
 
         <Button
-            android:id="@+id/find_em_pw_btn"
+            android:id="@+id/find_pw_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/enter_pw"
             android:layout_alignRight="@+id/enter_pw"
-            android:text="email / pw 찾기"
+            android:text="pw 찾기"
             android:textColor="@color/black"
             android:background="@android:color/transparent"
             />

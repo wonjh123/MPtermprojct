@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginPage extends AppCompatActivity {
 
     private Button signInBtn, registerBtn;
-    private Button findEmailPW;
+    private Button findPW;
     private EditText email_EditText, pw_EditText;
     private String emailText, pwText;
 
@@ -19,7 +19,6 @@ public class LoginPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-
 
         // 1. email / pw 입력 받기
         // email, pw 입력받기
@@ -71,14 +70,14 @@ public class LoginPage extends AppCompatActivity {
             }
         });
 
-        // 4. email/pw 찾기 클릭 시 해당 페이지 이동
-        findEmailPW = findViewById(R.id.find_em_pw_btn);
-        findEmailPW.setOnClickListener(new View.OnClickListener() {
+        // 4. pw 찾기 클릭 시 해당 페이지 이동
+        findPW = findViewById(R.id.find_pw_btn);
+        findPW.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 /*
                 Intent intent = new Intent(getApplicationContext(),
-                        FindPopup.class);
+                        FindPWPage.class);
                 startActivity(intent);
                  */
             }
