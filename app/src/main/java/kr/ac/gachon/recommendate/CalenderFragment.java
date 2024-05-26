@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -36,7 +37,8 @@ public class CalenderFragment extends Fragment {
     String[] keyword, like;
     public ListView rankList;
     RankListAdapter rankListAdapter;
-    private Button otherBtn;
+    private Button likeBtn, otherBtn;
+    private String keyItem, likeItem;
 
     public CalenderFragment() {
         // Required empty public constructor
@@ -97,11 +99,28 @@ public class CalenderFragment extends Fragment {
         rankListAdapter = new RankListAdapter();
 
         // top 3, 상위 3개의 keyword, like 수 list에 추가하기
-
         for(int i = 0 ; i < 3; i++){
             rankListAdapter.addItem(new RankList(keyword[i],like[i]));
         }
         rankList.setAdapter(rankListAdapter);
+
+        // 3-1. like button 클릭 시 DB의 like +1
+
+        // 3-2. 해당 코스 클릭 시 게시글 화면으로 이동
+        rankList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                keyItem = ((RankList)rankListAdapter.getItem(position)).getKey();
+                likeItem = ((RankList)rankListAdapter.getItem(position)).getLike();
+
+                Intent intent = new Intent(getActivity(), CourseDetail.class);
+                intent.putExtra("key", keyItem);
+                intent.putExtra("likeNum", like);
+
+                startActivity(intent);
+
+            }
+        });
 
         // 4. 다른 코스 보기 Button 클릭 시 이동
         otherBtn = view.findViewById(R.id.other_btn);
@@ -112,9 +131,6 @@ public class CalenderFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-
-
 
         return view;
     }

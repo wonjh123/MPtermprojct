@@ -6,14 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class RankListAdapter extends BaseAdapter {
     ArrayList<RankList> items = new ArrayList<>();
-
     Context context;
+    Button likeBtn;
 
     @Override
     public int getCount() {
@@ -52,6 +53,18 @@ public class RankListAdapter extends BaseAdapter {
 
         keyword.setText(listItem.getKey());
         like.setText(listItem.getLike());
+
+        /*
+        likeBtn = convertView.findViewById(R.id.like_btn);
+        likeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*
+                * 클릭 시 DB like 수 증가하기
+
+            }
+        });
+        */
 
 
         return convertView;

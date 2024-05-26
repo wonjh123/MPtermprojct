@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="rank_test_keyword">
-        <item>#당일치기 #강원도</item>
-        <item>#1박2일 #체험</item>
+        <item>#강원도</item>
+        <item>#체험</item>
         <item>#맛집탐방</item>
         <item>#노을 #맛집탐방</item>
-        <item>#제주도 #1박2일</item>
-        <item>#바닷가 #노을</item>
+        <item>#수원 #당일치기</item>
+        <item>#카페</item>
 
     </string-array>
 
@@ -17,6 +17,24 @@
         <item>120</item>
         <item>80</item>
         <item>50</item>
+    </string-array>
+
+    <string-array name="rank_test_user">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+    </string-array>
+    <string-array name="rank_test_txt">
+        <item>강원도 oo시, 점심 카페 바닷가. 차에서 자다가 동이 틀 무렵 바닷가로 가서 해돋이를 감상함.</item>
+        <item>커플한테 인기만점이라는 oo체험장에 드디어 입성! 체험비도 가성비있고 멀다는게 조금 흠이지만 전체적으로
+        만족스러움!</item>
+        <item>우리 둘다 현지 맛집탐방 좋아해서 이 지역 주민들만 안다는 찐맛집으로 출발</item>
+        <item>노을하면 서해안. 가면서 유명 맛집 한번 들러서 분위기 내주고 노을로 마무리</item>
+        <item>수원 스타필드</item>
+        <item>데이트 분위기 엄청나다는 카페, 좀 늦긴 했지만 시간내어 방문함</item>
     </string-array>
 
 </resources>

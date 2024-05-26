@@ -36,6 +36,7 @@
 
         <!-- nav1. 랭킹Top3 페이지 및 코스 페이지 -->
         <activity android:name=".ShowCourseList"/>
+        <activity android:name=".CourseDetail"/>
 
 
 

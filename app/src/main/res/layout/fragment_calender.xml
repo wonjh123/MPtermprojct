@@ -31,7 +31,7 @@
             android:id="@+id/other_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="다른 코스 보기"
+            android:text="-> 다른 코스 보기"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:background="@android:color/transparent"
