@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="rank_test_keyword">
+        <item>#당일치기 #강원도</item>
+        <item>#1박2일 #체험</item>
+        <item>#맛집탐방</item>
+
+    </string-array>
+
+    <string-array name="rank_test_like">
+        <item>253</item>
+        <item>189</item>
+        <item>135</item>
+    </string-array>
+
+</resources>
