@@ -4,6 +4,9 @@
         <item>#당일치기 #강원도</item>
         <item>#1박2일 #체험</item>
         <item>#맛집탐방</item>
+        <item>#노을 #맛집탐방</item>
+        <item>#제주도 #1박2일</item>
+        <item>#바닷가 #노을</item>
 
     </string-array>
 
@@ -11,6 +14,9 @@
         <item>253</item>
         <item>189</item>
         <item>135</item>
+        <item>120</item>
+        <item>80</item>
+        <item>50</item>
     </string-array>
 
 </resources>

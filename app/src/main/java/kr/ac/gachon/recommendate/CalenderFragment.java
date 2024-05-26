@@ -1,6 +1,7 @@
 package kr.ac.gachon.recommendate;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 
 /*
@@ -34,6 +36,7 @@ public class CalenderFragment extends Fragment {
     String[] keyword, like;
     public ListView rankList;
     RankListAdapter rankListAdapter;
+    private Button otherBtn;
 
     public CalenderFragment() {
         // Required empty public constructor
@@ -84,7 +87,7 @@ public class CalenderFragment extends Fragment {
         like =
          */
 
-        // 2-1. 화면 테스트를 위해 임시로 array.xml에 세팅해둔 top3 리스트를 이용함.
+        // 2-1. Test: 화면 테스트를 위해 임시로 array.xml에 세팅해둔 top3 리스트를 이용함.
         // db연결 후 삭제 초지
         keyword = getResources().getStringArray(R.array.rank_test_keyword);
         like = getResources().getStringArray(R.array.rank_test_like);
@@ -99,6 +102,19 @@ public class CalenderFragment extends Fragment {
             rankListAdapter.addItem(new RankList(keyword[i],like[i]));
         }
         rankList.setAdapter(rankListAdapter);
+
+        // 4. 다른 코스 보기 Button 클릭 시 이동
+        otherBtn = view.findViewById(R.id.other_btn);
+        otherBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ShowCourseList.class);
+                startActivity(intent);
+            }
+        });
+
+
+
 
         return view;
     }

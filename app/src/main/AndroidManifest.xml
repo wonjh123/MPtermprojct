@@ -28,11 +28,14 @@
         </activity>
         <activity android:name=".RecommendActivity"/>
 
-        <!-- 앱 실행 첫 로그인 -->
+        <!-- 1. 앱 실행 첫 로그인 -->
         <activity android:name=".LoginPage"/>
         <activity android:name=".Register"
             android:theme="@android:style/Theme.Holo.Light.Dialog"/>
         <activity android:name=".FindPWPage"/>
+
+        <!-- nav1. 랭킹Top3 페이지 및 코스 페이지 -->
+        <activity android:name=".ShowCourseList"/>
 
 
 
