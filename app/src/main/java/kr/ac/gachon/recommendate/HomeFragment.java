@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 public class HomeFragment extends Fragment {
+
+    private Button btnOpenRecommend;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -22,7 +24,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         // btn_open_recommend 버튼을 찾습니다.
-        Button btnOpenRecommend = view.findViewById(R.id.btn_open_recommend);
+        btnOpenRecommend = view.findViewById(R.id.btn_open_recommend);
 
         // btn_open_recommend 버튼에 클릭 리스너를 설정합니다.
         btnOpenRecommend.setOnClickListener(new View.OnClickListener() {
