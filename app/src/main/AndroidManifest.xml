@@ -28,6 +28,7 @@
         </activity>
         <activity android:name=".RecommendActivity"/>
         <activity android:name=".TagActivity"/>
+        <activity android:name=".ResultActivity"/>
 
         <!-- 1. 앱 실행 첫 로그인 -->
         <activity android:name=".LoginPage"/>

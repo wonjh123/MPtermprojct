@@ -4,17 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RecommendActivity extends AppCompatActivity {
 
-    private Button btnBackToHome;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommend);
+
+        TextView headerTitle = findViewById(R.id.text_header_title);
+        headerTitle.setText("오늘 어디서 만나고 싶으신가요?");
+
+
 
         // 뒤로가기 버튼 설정
         Button btnArrowBack = findViewById(R.id.btn_arrow_back);
