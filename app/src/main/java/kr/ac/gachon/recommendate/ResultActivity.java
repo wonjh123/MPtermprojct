@@ -7,6 +7,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+<<<<<<< HEAD
+=======
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import javax.xml.transform.Result;
+>>>>>>> 5aafc109d1d0a62aee13efd2771e9553cfb52f9c
 
 public class ResultActivity extends AppCompatActivity {
 

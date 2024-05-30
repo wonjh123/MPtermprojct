@@ -14,6 +14,7 @@
         android:layout_height="68dp">
     </TextView>
 
+<<<<<<< HEAD
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -84,6 +85,65 @@
         </RelativeLayout>
 
     </ScrollView>
+=======
+    <View
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_below="@id/blank_box"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/darker_gray" />
+
+    <View
+        android:id="@+id/divider_map_view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/map_view"
+        android:background="@android:color/black" />
+
+    <EditText
+        android:id="@+id/edit_text_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider_map_view"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:hint="이름을 저장해주세요" />
+
+    <View
+        android:id="@+id/divider_edit_text_name"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/edit_text_name"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/place_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:paddingLeft="24dp"
+        android:layout_below="@id/divider_edit_text_name"
+        android:text="1. 어쩌구 밥집"
+        android:textSize="20sp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/place_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="16dp"
+        android:paddingLeft="24dp"
+        android:layout_below="@id/place_1"
+        android:text="2. 어쩌구 밥집"
+        android:textSize="20sp">
+    </TextView>
+>>>>>>> 5aafc109d1d0a62aee13efd2771e9553cfb52f9c
 
     <Button
         android:id="@+id/btn_save_result"
