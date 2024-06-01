@@ -49,7 +49,16 @@
         android:layout_height="2dp"
         android:background="@android:color/black" />
 
-    <ScrollView
+
+    <ListView
+        android:id="@+id/list_recommend_dates"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@android:color/black"
+        android:dividerHeight="1dp" />
+
+    <!--<ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -183,5 +192,5 @@
                 android:layout_height="1dp"
                 android:background="@android:color/black" />
         </LinearLayout>
-    </ScrollView>
+    </ScrollView>-->
 </LinearLayout>
