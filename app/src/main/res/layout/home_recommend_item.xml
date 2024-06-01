@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    >
+    <FrameLayout
+        android:id="@+id/frame_recommend_date3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title_recommend_date3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="15dp"
+            android:text="3. 저쩌구 데이트"
+            android:textSize="20sp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/date_recommend_date3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|end"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="15dp"
+            android:text="2004.10.31"
+            android:textSize="20sp">
+        </TextView>
+
+        <Button
+            android:id="@+id/btn_open_recommend_date3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:paddingVertical="15dp">
+        </Button>
+    </FrameLayout>
+
+
+</LinearLayout>
