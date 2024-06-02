@@ -1,14 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MyPageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/layout_profile_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/android_green"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:paddingVertical="16dp"
+            android:contentDescription="Profile Image" />
+
+        <TextView
+            android:id="@+id/text_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/profileImageView"
+            android:layout_marginStart="16dp"
+            android:layout_centerVertical="true"
+            android:text="User Name"
+            android:textSize="40sp"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/divider_profile_info"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black" />
+
+    <Button
+        android:id="@+id/btn_last_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="지난 데이트"
+        android:textColor="@android:color/black"
+        android:gravity="start"
+        android:drawableEnd="@drawable/arrow_forward_ios_24px"
+        android:textSize="18sp">
+    </Button>
+
+    <Button
+        android:id="@+id/btn_my_tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="내 태그"
+        android:gravity="start"
+        android:textColor="@android:color/black"
+        android:drawableEnd="@drawable/arrow_forward_ios_24px"
+        android:textSize="18sp">
+    </Button>
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:text="로그아웃"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp">
+    </Button>
+
+
+</LinearLayout>
