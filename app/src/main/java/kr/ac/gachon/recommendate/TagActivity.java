@@ -2,13 +2,13 @@ package kr.ac.gachon.recommendate;
 
 import android.content.Intent;
 import android.graphics.Color;
-<<<<<<< HEAD
+
 import android.os.Bundle;
-=======
+
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MotionEvent;
->>>>>>> 5aafc109d1d0a62aee13efd2771e9553cfb52f9c
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
