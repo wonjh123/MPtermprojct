@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -43,6 +45,12 @@
         <activity android:name=".CourseDetail"/>
 
 
+        <!-- Google Map Api Key & 지도 페이지-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${google_map_api_key}"
+            />
+        <activity android:name=".LocationMapTest"/>
 
     </application>
 
