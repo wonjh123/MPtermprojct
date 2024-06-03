@@ -13,12 +13,10 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:gravity="center"
-        android:background="@color/Gold"
         android:text="랭킹 Top 3"
         android:textSize="30dp"
         android:textStyle="bold"
         />
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,37 +29,19 @@
             android:id="@+id/other_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="-> 다른 코스 보기"
-            android:textColor="@color/black"
-            android:textSize="18dp"
+            android:text="다른 코스 더 보기"
+            android:textColor="@color/primaryColor"
+            android:textSize="18sp"
             android:background="@android:color/transparent"
             android:gravity="left"
             />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:scrollbars="none"
-            >
-
             <ListView
                 android:id="@+id/rank_top3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_height="wrap_content"
                 android:descendantFocusability="beforeDescendants"
                 />
 
-        </ScrollView>
-
     </LinearLayout>
-
-
-
-    <!-- TODO: Update blank fragment layout -->
-
-
 </FrameLayout>

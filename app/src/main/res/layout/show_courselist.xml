@@ -5,16 +5,7 @@
     android:orientation="vertical"
     >
 
-    <TextView
-        android:id="@+id/course_text"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:text="다른 코스들"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:background="@color/Gold"
-        />
+    <include layout="@layout/header_button_textview_layout" />
 
     <ScrollView
         android:layout_width="match_parent"
