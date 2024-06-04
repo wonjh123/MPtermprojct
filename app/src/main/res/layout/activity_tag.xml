@@ -27,7 +27,11 @@
         android:textColor="@android:color/white"
         android:textSize="16sp" />
 
-    <Button
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></ToggleButton>
+
+    <!--<Button
         android:id="@+id/btn_tag2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,7 +51,7 @@
         android:layout_marginBottom="16dp"
         android:text="바다"
         android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:textSize="16sp" />-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_get_result"
