@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ public class ShowCourseList extends Activity {
 
 
         // 뒤로가기 버튼 설정
-        Button btnArrowBack = findViewById(R.id.btn_arrow_back);
+        ImageButton btnArrowBack = findViewById(R.id.btn_arrow_back);
         btnArrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

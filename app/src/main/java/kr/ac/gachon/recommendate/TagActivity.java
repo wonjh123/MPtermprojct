@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -23,7 +24,7 @@ public class TagActivity extends AppCompatActivity {
         TextView headerTitle = findViewById(R.id.text_header_title);
         headerTitle.setText("오늘의 분위기는 어떤가요?");
 
-        Button btnArrowBack = findViewById(R.id.btn_arrow_back);
+        ImageButton btnArrowBack = findViewById(R.id.btn_arrow_back);
 
         btnArrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
