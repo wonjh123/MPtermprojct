@@ -5,33 +5,51 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".HomeFragment">
 
-    <Button
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="RecommendDate"
+        android:textSize="36sp">
+    </TextView>
+
+    <View
+        android:id="@+id/divider_title"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/Gray" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_open_map"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_margin="16dp"
-        android:background="@drawable/rounded_button_high"
+        android:layout_height="200dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_stroke"
         android:text="Open Map"
         android:textSize="18sp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_open_recommend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/rounded_button_low"
-        android:paddingVertical="16dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_stroke"
         android:text="Recommend"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textColor="@color/primaryColor"/>
 
     <View
         android:id="@+id/divider_btn_recommend"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@android:color/black" />
+        android:layout_height="1dp"
+        android:background="@color/Gray" />
 
     <TextView
         android:id="@+id/text_last_dates"
@@ -46,17 +64,19 @@
     <View
         android:id="@+id/divider_text_last_dates"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@android:color/black" />
-
+        android:layout_height="1dp"
+        android:background="@color/Gray" />
 
     <ListView
         android:id="@+id/list_recommend_dates"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:divider="@android:color/black"
-        android:dividerHeight="1dp" />
+        android:paddingTop="5dp"
+        android:paddingHorizontal="10dp"
+        android:background="@color/lightGray"
+        android:divider="@color/lightGray"
+        android:dividerHeight="10dp" />
 
     <!--<ScrollView
         android:layout_width="match_parent"

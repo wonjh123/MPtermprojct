@@ -97,12 +97,12 @@ public class LastDatesActivity extends AppCompatActivity {
                 convertView = inflater.inflate(R.layout.last_dates_list_item, parent, false);
             }
 
-            TextView leftTextView = convertView.findViewById(R.id.left_text1);
+            /*TextView leftTextView = convertView.findViewById(R.id.left_text1);
             TextView rightTextView = convertView.findViewById(R.id.right_text1);
 
             LastDatesActivity.LastDate date = dates.get(position);
             leftTextView.setText(date.getLeftText());
-            rightTextView.setText(date.getRightText());
+            rightTextView.setText(date.getRightText());*/
 
             return convertView;
         }

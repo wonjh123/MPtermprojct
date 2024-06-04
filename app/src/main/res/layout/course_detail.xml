@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightGray"
     android:orientation="vertical">
 
     <include layout="@layout/header_button_textview_layout" />
@@ -16,19 +17,17 @@
             android:layout_height="350dp"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/rounded_button_low" />
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_stroke" />
 
         <Button
             android:id="@+id/like_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/image"
-            android:layout_alignLeft="@+id/image"
+            android:layout_alignStart="@+id/image"
             android:text="like" />
 
         <TextView
@@ -37,33 +36,38 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/image"
             android:layout_alignBaseline="@+id/like_btn"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/like_btn"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/like_btn"
             android:text="num" />
-
-        <TextView
-            android:id="@+id/show_keyword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/like_btn"
-            android:layout_alignLeft="@+id/like_btn"
-            android:layout_marginTop="20dp"
-            android:text="keyword"
-            android:textSize="25dp"
-            android:textStyle="bold" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/show_keyword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:text="keyword"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/divider_title"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/Gray" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/text_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             android:padding="20dp"
-
             android:text="코스 후기" />
 
     </ScrollView>

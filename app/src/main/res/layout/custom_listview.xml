@@ -2,15 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/button_border_round"
     android:padding="10dp">
 
     <ImageView
         android:id="@+id/photo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginEnd="20dp"
-        android:background="@color/black" />
-
+        android:background="@drawable/button_stroke" />
 
     <TextView
         android:id="@+id/keyword"
@@ -22,100 +22,23 @@
         android:text="keyword"
         android:textSize="18sp" />
 
-
-    <!--<ImageButton
-        android:id="@+id/like_btn"
+    <ImageView
+        android:id="@+id/like_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/photo"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
         android:layout_toEndOf="@id/photo"
-        android:background="@android:color/transparent"
-        android:focusableInTouchMode="false"
-        android:focusable="false"
-        android:src="@drawable/favorite_24px"
-        android:contentDescription="like button" />-->
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/like_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/photo"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toEndOf="@id/photo"
-        android:focusable="false"
-        android:background="@drawable/button_stroke"
-        android:text="like"
-        android:textColor="@color/primaryColor"
-        android:minHeight="0dp"
-        android:minWidth="0dp"
-        android:paddingVertical="10dp"
-        android:paddingHorizontal="16dp"
-         />
-
+        android:src="@drawable/favorite_24px" />
 
     <TextView
         android:id="@+id/like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/photo"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="10dp"
-        android:layout_toEndOf="@id/like_btn"
+        android:layout_alignTop="@id/like_icon"
+        android:layout_alignBottom="@id/like_icon"
+        android:layout_toEndOf="@id/like_icon"
         android:text="like num" />
 
 </RelativeLayout>
-
-    <!--<?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <ImageView
-            android:id="@+id/photo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="20dp"
-            android:background="@color/black" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/keyword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="keyword"
-                android:textSize="18sp" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <Button
-                    android:id="@+id/like_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:focusable="false"
-                    android:text="like button icon" />
-
-                <TextView
-                    android:id="@+id/like"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/like_btn"
-                    android:layout_marginLeft="20dp"
-                    android:layout_toRightOf="@+id/like_btn"
-                    android:text="like num" />
-
-            </RelativeLayout>
-        </LinearLayout>
-
-    </LinearLayout>-->

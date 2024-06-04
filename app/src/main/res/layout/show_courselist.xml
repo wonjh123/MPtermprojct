@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     >
 
     <include layout="@layout/header_button_textview_layout" />
@@ -17,7 +18,9 @@
             android:id="@+id/course_listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:divider="@color/white"
+            android:dividerHeight="10dp"/>
 
     </ScrollView>
 
