@@ -98,15 +98,15 @@ public class HomeFragment extends Fragment {
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.home_recommend_item, parent, false);
+                convertView = inflater.inflate(R.layout.custom_listview, parent, false);
             }
 
-            TextView leftTextView = convertView.findViewById(R.id.left_text);
+            /*TextView leftTextView = convertView.findViewById(R.id.keyword);
             TextView rightTextView = convertView.findViewById(R.id.right_text);
 
             RecommendDate date = dates.get(position);
             leftTextView.setText(date.getLeftText());
-            rightTextView.setText(date.getRightText());
+            rightTextView.setText(date.getRightText());*/
 
             return convertView;
         }

@@ -2,7 +2,9 @@ package kr.ac.gachon.recommendate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,19 @@ public class CourseDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.course_detail);
+
+        TextView headerTitle = findViewById(R.id.text_header_title);
+        headerTitle.setText("데이트");
+
+
+        // 뒤로가기 버튼 설정
+        ImageButton btnArrowBack = findViewById(R.id.btn_arrow_back);
+        btnArrowBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // 현재 액티비티 종료, 이전 화면으로 돌아감
+            }
+        });
 
         // 1. ShowCourseList.class에서 코스 클릭 시 putExtra로 보낸 자료 받기 위해 intent 초기화
         intent = getIntent();

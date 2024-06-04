@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class ShowCourseList extends Activity {
 
@@ -17,6 +20,19 @@ public class ShowCourseList extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_courselist);
+
+        TextView headerTitle = findViewById(R.id.text_header_title);
+        headerTitle.setText("");
+
+
+        // 뒤로가기 버튼 설정
+        ImageButton btnArrowBack = findViewById(R.id.btn_arrow_back);
+        btnArrowBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // 현재 액티비티 종료, 이전 화면으로 돌아감
+            }
+        });
 
         // 1. 테스트를 위해 array.xml 파일에서 임시로 list 가져오기
         keyword = getResources().getStringArray(R.array.rank_test_keyword);

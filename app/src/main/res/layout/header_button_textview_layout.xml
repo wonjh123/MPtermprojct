@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     tools:context=".RecommendActivity">
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_arrow_back"
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -14,6 +15,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/arrow_back_ios_24px"
+        android:backgroundTint="#FFB6C1"
         android:contentDescription="뒤로가기 버튼" />
 
     <TextView
@@ -28,9 +30,9 @@
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_below="@id/btn_arrow_back"
         android:layout_marginTop="16dp"
-        android:background="@android:color/black" />
+        android:background="@color/Gray" />
 
 </RelativeLayout>

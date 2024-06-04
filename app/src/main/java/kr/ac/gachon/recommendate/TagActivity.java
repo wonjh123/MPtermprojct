@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -29,7 +30,7 @@ public class TagActivity extends AppCompatActivity {
         TextView headerTitle = findViewById(R.id.text_header_title);
         headerTitle.setText("오늘의 분위기는 어떤가요?");
 
-        Button btnArrowBack = findViewById(R.id.btn_arrow_back);
+        ImageButton btnArrowBack = findViewById(R.id.btn_arrow_back);
 
         btnArrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +48,7 @@ public class TagActivity extends AppCompatActivity {
             }
         });
 
-        Button btnTag2 = findViewById(R.id.btn_tag2);
+        /*Button btnTag2 = findViewById(R.id.btn_tag2);
 
         btnTag2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +80,6 @@ public class TagActivity extends AppCompatActivity {
                     btnTag3.setBackgroundColor(Color.RED); // OFF 상태 배경색
                 }
             }
-        });
+        });*/
     }
 }
