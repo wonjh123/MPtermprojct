@@ -1,5 +1,8 @@
 plugins {
     id("com.android.application")
+
+    // Add the Google services Gradle plugin
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -48,4 +51,12 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     implementation("com.google.firebase:firebase-auth-ktx:23.0.0")
     implementation("com.google.android.gms:play-services-auth:21.1.1")
+
+    // Google Play services
+    implementation("com.google.gms:google-services:4.3.15")
+    implementation("com.google.firebase:firebase-auth:22.0.0")
+    implementation("com.google.firebase:firebase-bom:32.0.0")
+
+    implementation("com.google.firebase:firebase-analytics-ktx")
+
 }
