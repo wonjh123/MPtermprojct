@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Recommendate"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />
@@ -21,19 +22,22 @@
             android:name=".NaviActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".RecommendActivity"/>
         <activity android:name=".TagActivity"/>
         <activity android:name=".ResultActivity"/>
-        <activity android:name=".LastDatesActivity"/>
-        <activity android:name=".MyTagActivity"/>
 
         <!-- 1. 앱 실행 첫 로그인 -->
-        <activity android:name=".LoginPage"/>
+        <activity android:name=".LoginPage"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Register"
             android:theme="@android:style/Theme.Holo.Light.Dialog"/>
         <activity android:name=".FindPWPage"/>
@@ -41,8 +45,6 @@
         <!-- nav1. 랭킹Top3 페이지 및 코스 페이지 -->
         <activity android:name=".ShowCourseList"/>
         <activity android:name=".CourseDetail"/>
-
-
 
     </application>
 
