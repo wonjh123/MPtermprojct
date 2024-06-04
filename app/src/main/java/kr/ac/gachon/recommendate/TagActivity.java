@@ -48,7 +48,7 @@ public class TagActivity extends AppCompatActivity {
             }
         });
 
-        Button btnTag2 = findViewById(R.id.btn_tag2);
+        /*Button btnTag2 = findViewById(R.id.btn_tag2);
 
         btnTag2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +80,6 @@ public class TagActivity extends AppCompatActivity {
                     btnTag3.setBackgroundColor(Color.RED); // OFF 상태 배경색
                 }
             }
-        });
+        });*/
     }
 }

@@ -43,7 +43,7 @@
         android:background="@drawable/button_stroke"
         android:text="Recommend"
         android:textSize="18sp"
-        android:textColor="@color/primaryColor"/>
+        android:textColor="@color/black"/>
 
     <View
         android:id="@+id/divider_btn_recommend"
@@ -74,8 +74,8 @@
         android:layout_weight="1"
         android:paddingTop="5dp"
         android:paddingHorizontal="10dp"
-        android:background="@color/lightGray"
-        android:divider="@color/lightGray"
+        android:background="@color/white"
+        android:divider="@color/white"
         android:dividerHeight="10dp" />
 
     <!--<ScrollView

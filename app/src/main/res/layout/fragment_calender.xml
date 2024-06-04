@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightGray"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".CalenderFragment">
 
@@ -34,7 +34,7 @@
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:text="다른 코스 더 보기"
-            android:textColor="@color/primaryColor"
+            android:textColor="@color/primaryColorDark"
             android:textSize="18sp" />
 
         <ListView
@@ -43,8 +43,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:descendantFocusability="beforeDescendants"
+            android:background="@color/white"
             android:dividerHeight="10dp"
-            android:divider="@color/lightGray"/>
+            android:divider="@color/white"/>
 
     </LinearLayout>
 </FrameLayout>
