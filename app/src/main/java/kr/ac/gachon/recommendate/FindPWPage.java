@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.net.InetAddress;
-
 public class FindPWPage extends Activity {
 
     private EditText email_editText, name_editText;

@@ -5,16 +5,14 @@
     android:orientation="vertical"
     >
 
-    <TextView
+    <ImageView
         android:id="@+id/AppLogo"
-        android:layout_width="300dp"
-        android:layout_height="80dp"
+        android:layout_width="700dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:text="RecommenDate"
-        android:textSize="35dp"
-        android:textStyle="bold" />
+        android:src="@drawable/ic_logo"
+        />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -82,19 +80,19 @@
         android:text="로그인"
         />
 
-    <Button
-        android:id="@+id/sign_google_btn"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
-        android:text="sign for google"
-        />
+        android:layout_marginRight="60dp">
 
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
 
-
-
-
+    </RelativeLayout>
 
 </LinearLayout>

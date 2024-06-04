@@ -1,6 +1,5 @@
 package kr.ac.gachon.recommendate;
 
-import android.app.LauncherActivity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
