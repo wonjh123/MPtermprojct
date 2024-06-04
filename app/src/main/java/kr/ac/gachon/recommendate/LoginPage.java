@@ -30,8 +30,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginPage extends AppCompatActivity {
 
-    private Button signInBtn, registerBtn;
-    private Button findPW;
+    private Button signInBtn, registerBtn, findPW;
     private EditText email_EditText, pw_EditText;
     private SignInButton signInButton;
     private GoogleSignInClient mGoogleSignInClient;
@@ -42,6 +41,8 @@ public class LoginPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
+
+        mAuth = FirebaseAuth.getInstance();
 
         initEmailPasswordLogin();
         initGoogleSignIn();
@@ -79,17 +80,20 @@ public class LoginPage extends AppCompatActivity {
                 String emailText = email_EditText.getText().toString();
                 String pwText = pw_EditText.getText().toString();
 
-                boolean emailExists = checkEmailInDB(emailText);
-                boolean passwordCorrect = checkPasswordInDB(emailText, pwText);
-
-                if (!emailExists) {
-                    Toast.makeText(getApplicationContext(), "해당 계정이 존재하지 않습니다.", Toast.LENGTH_LONG).show();
-                } else if (!passwordCorrect) {
-                    Toast.makeText(getApplicationContext(), "비밀번호가 틀렸습니다.", Toast.LENGTH_LONG).show();
-                } else {
-                    Intent intent = new Intent(getApplicationContext(), NaviActivity.class);
-                    startActivity(intent);
+                if (emailText.isEmpty() || pwText.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "이메일과 비밀번호를 입력하세요.", Toast.LENGTH_LONG).show();
+                    return;
                 }
+
+                signInWithEmailPassword(emailText, pwText);
+            }
+        });
+
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginPage.this, Register.class);
+                startActivity(intent);
             }
         });
 
@@ -100,6 +104,23 @@ public class LoginPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void signInWithEmailPassword(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Intent intent = new Intent(getApplicationContext(), NaviActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "로그인 실패: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
     }
 
     private void initGoogleSignIn() {
@@ -150,15 +171,5 @@ public class LoginPage extends AppCompatActivity {
                         }
                     }
                 });
-    }
-
-    private boolean checkEmailInDB(String email) {
-        // Logic to check if email exists in DB
-        return true; // Placeholder, implement actual logic
-    }
-
-    private boolean checkPasswordInDB(String email, String password) {
-        // Logic to check if password matches for the given email
-        return true; // Placeholder, implement actual logic
     }
 }
