@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -14,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Recommendate"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />
@@ -21,19 +24,25 @@
             android:name=".NaviActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
         </activity>
         <activity android:name=".RecommendActivity"/>
         <activity android:name=".TagActivity"/>
         <activity android:name=".ResultActivity"/>
-        <activity android:name=".LastDatesActivity"/>
         <activity android:name=".MyTagActivity"/>
+        <activity android:name=".LastDatesActivity"/>
 
         <!-- 1. 앱 실행 첫 로그인 -->
-        <activity android:name=".LoginPage"/>
+        <activity android:name=".LoginPage"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Register"
             android:theme="@android:style/Theme.Holo.Light.Dialog"/>
         <activity android:name=".FindPWPage"/>
@@ -42,7 +51,12 @@
         <activity android:name=".ShowCourseList"/>
         <activity android:name=".CourseDetail"/>
 
-
+        <!-- Google Map Api Key & 지도 페이지-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${google_map_api_key}"
+            />
+        <activity android:name=".LocationMap"/>
 
     </application>
 

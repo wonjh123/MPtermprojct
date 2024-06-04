@@ -3,65 +3,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalenderFragment"
+    android:background="@color/white"
     android:orientation="vertical"
-    >
+    tools:context=".CalenderFragment">
 
     <TextView
         android:id="@+id/text_top3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:background="@color/white"
         android:gravity="center"
-        android:background="@color/Gold"
+        android:padding="10dp"
         android:text="랭킹 Top 3"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        />
-
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_marginTop="65dp"
-        >
+        android:orientation="vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/other_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="-> 다른 코스 보기"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:background="@android:color/transparent"
-            android:gravity="left"
-            />
+            android:background="@android:color/white"
+            android:gravity="start"
+            android:padding="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="다른 코스 더 보기"
+            android:textColor="@color/primaryColorDark"
+            android:textSize="18sp" />
 
-        <ScrollView
+        <ListView
+            android:id="@+id/rank_top3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:scrollbars="none"
-            >
-
-            <ListView
-                android:id="@+id/rank_top3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="20dp"
-                android:descendantFocusability="beforeDescendants"
-                />
-
-        </ScrollView>
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:descendantFocusability="beforeDescendants"
+            android:background="@color/white"
+            android:dividerHeight="10dp"
+            android:divider="@color/white"/>
 
     </LinearLayout>
-
-
-
-    <!-- TODO: Update blank fragment layout -->
-
-
 </FrameLayout>

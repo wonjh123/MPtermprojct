@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".TagActivity">
 
     <include layout="@layout/header_button_textview_layout" />
@@ -26,7 +27,11 @@
         android:textColor="@android:color/white"
         android:textSize="16sp" />
 
-    <Button
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></ToggleButton>
+
+    <!--<Button
         android:id="@+id/btn_tag2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,16 +51,16 @@
         android:layout_marginBottom="16dp"
         android:text="바다"
         android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:textSize="16sp" />-->
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_get_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/button_border_round_primary"
         android:text="결과 보러가기"
         android:textColor="@android:color/white"
         android:textSize="16sp" />

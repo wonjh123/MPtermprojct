@@ -4,9 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import javax.xml.transform.Result;
+
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -21,7 +28,7 @@ public class ResultActivity extends AppCompatActivity {
 
 
         // 뒤로가기 버튼 설정
-        Button btnArrowBack = findViewById(R.id.btn_arrow_back);
+        ImageButton btnArrowBack = findViewById(R.id.btn_arrow_back);
         btnArrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

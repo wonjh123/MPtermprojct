@@ -21,7 +21,7 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    private Button btnOpenRecommend;
+    private Button btnOpenRecommend, btnOpenMap;
     private ListView listView;
     private ArrayList<RecommendDate> recommendDates;
     public HomeFragment() {
@@ -40,6 +40,16 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 // RecommendActivity로 이동하는 인텐트 생성
                 Intent intent = new Intent(getActivity(), RecommendActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 1. Map 열기 버튼 이벤트
+        btnOpenMap = rootView.findViewById(R.id.btn_open_map);
+        btnOpenMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LocationMap.class);
                 startActivity(intent);
             }
         });
@@ -98,15 +108,15 @@ public class HomeFragment extends Fragment {
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.home_recommend_item, parent, false);
+                convertView = inflater.inflate(R.layout.custom_listview, parent, false);
             }
 
-            TextView leftTextView = convertView.findViewById(R.id.left_text);
+            /*TextView leftTextView = convertView.findViewById(R.id.keyword);
             TextView rightTextView = convertView.findViewById(R.id.right_text);
 
             RecommendDate date = dates.get(position);
             leftTextView.setText(date.getLeftText());
-            rightTextView.setText(date.getRightText());
+            rightTextView.setText(date.getRightText());*/
 
             return convertView;
         }

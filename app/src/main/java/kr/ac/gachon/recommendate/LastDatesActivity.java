@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,7 +33,7 @@ public class LastDatesActivity extends AppCompatActivity {
         TextView headerTitle = findViewById(R.id.text_header_title);
         headerTitle.setText("지난 데이트");
 
-        Button btnArrowBack = findViewById(R.id.btn_arrow_back);
+        ImageButton btnArrowBack = findViewById(R.id.btn_arrow_back);
         btnArrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,12 +97,12 @@ public class LastDatesActivity extends AppCompatActivity {
                 convertView = inflater.inflate(R.layout.last_dates_list_item, parent, false);
             }
 
-            TextView leftTextView = convertView.findViewById(R.id.left_text1);
+            /*TextView leftTextView = convertView.findViewById(R.id.left_text1);
             TextView rightTextView = convertView.findViewById(R.id.right_text1);
 
             LastDatesActivity.LastDate date = dates.get(position);
             leftTextView.setText(date.getLeftText());
-            rightTextView.setText(date.getRightText());
+            rightTextView.setText(date.getRightText());*/
 
             return convertView;
         }
