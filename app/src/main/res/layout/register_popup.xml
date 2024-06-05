@@ -49,6 +49,7 @@
             android:padding="5dp"
             android:hint="Password"
             android:background="@drawable/edit_border"
+            android:inputType="textPassword"
             />
 
         <EditText
@@ -59,6 +60,8 @@
             android:padding="5dp"
             android:hint="Check PW"
             android:background="@drawable/edit_border"
+            android:inputType="textPassword"
+
             />
 
         <Button

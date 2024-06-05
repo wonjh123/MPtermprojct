@@ -44,6 +44,7 @@
             android:padding="10dp"
             android:hint="PassWord"
             android:background="@drawable/edit_border"
+            android:inputType="textPassword"
             />
 
         <Button
