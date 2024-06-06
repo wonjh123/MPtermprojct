@@ -57,6 +57,8 @@ public class LocationMap extends AppCompatActivity implements OnMapReadyCallback
     private boolean isapply = true;
     private LatLng latLngForMarker;
 
+    String[] mark_title, mark_lati,mark_long;
+
     GoogleMap map;
     private boolean onMarker = true;
     Marker marker, marker_retouch;
@@ -188,21 +190,44 @@ public class LocationMap extends AppCompatActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(@NonNull @org.jetbrains.annotations.NotNull
                            GoogleMap googleMap){
-        LatLng location = new LatLng(0,0);
+        map = googleMap;
+        // 1. 첫 지도 위치를 서울로 초기화해두기
+        LatLng initialLocation = new LatLng(37.52487,126.92723);
 
+        // 2. 지도에 marker 만들기 위한 좌표
+        //LatLng location = new LatLng(0,0);
+        // 2-1. 마커 테스트를 위해 현 위치를 '서울'로 하여 진행합니다.
+        LatLng location = new LatLng(37.52487,126.92723);
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.title("현위치");
         markerOptions.draggable(true);
         markerOptions.position(location);
 
         marker = googleMap.addMarker(markerOptions);
-        // 마커 위치로 이동하기
+        // 현위치 마커 위치로 이동하기
+
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 16));
 
+        // 테스트를 위한 서울 주변 카페, 음식점 마커 생성
+        mark_title = getResources().getStringArray(R.array.식당_카페);
+        mark_lati = getResources().getStringArray(R.array.위도);
+        mark_long = getResources().getStringArray(R.array.경도);
+        for(int i = 0; i<mark_title.length; i++){
+            MarkerOptions markerOptions1 = new MarkerOptions();
+            markerOptions1
+                    .position(new LatLng(Double.parseDouble(mark_lati[i]), Double.parseDouble(mark_long[i])))
+                    .title(mark_title[i]);
+
+            map.addMarker(markerOptions1);
+        }
+
+
+        // 지도 이동 시
         googleMap.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
             @Override
             public void onCameraMove() {
                 Log.d(TAG, "onCameraMove : TouchListenerIsRunning");
+
                 if(Math.abs(map.getCameraPosition().target.latitude - lattitude)
                         < 0.0005 && Math.abs(map.getCameraPosition().target.longitude - longitude) < 0.0005){
                     onMarker = true;
@@ -248,7 +273,7 @@ public class LocationMap extends AppCompatActivity implements OnMapReadyCallback
                 latLngForMarker = latLng;
             }
         });
-        map = googleMap;
+
     }
 
     // 권한 요청 시
