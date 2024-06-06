@@ -1,5 +1,6 @@
 package kr.ac.gachon.recommendate;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -24,6 +28,7 @@ public class HomeFragment extends Fragment {
     private Button btnOpenRecommend, btnOpenMap;
     private ListView listView;
     private ArrayList<RecommendDate> recommendDates;
+    private long backBtnTime = 0;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -70,6 +75,16 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+        // 홈에서 뒤로가기 누를 경우 로그인 화면으로 돌아가지 않도록 막는 코드
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(getActivity(), callback);
 
         return rootView;
     }

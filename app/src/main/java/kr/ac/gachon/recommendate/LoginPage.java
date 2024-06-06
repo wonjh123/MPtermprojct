@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -64,6 +65,7 @@ public class LoginPage extends AppCompatActivity {
                 }
             }
         });
+
     }
 
     private void initEmailPasswordLogin() {

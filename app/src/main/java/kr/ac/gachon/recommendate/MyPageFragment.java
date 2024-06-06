@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 public class MyPageFragment extends Fragment {
     private Button btnLastDates;
     private Button btnMyTags;
+
+    private Button btnLogOut;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,6 +37,17 @@ public class MyPageFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), MyTagActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        // 로그아웃 버튼 클릭 이벤트 -> 홈 화면으로 돌아가기
+        btnLogOut = view.findViewById(R.id.btn_logout);
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LoginPage.class);
                 startActivity(intent);
             }
         });
