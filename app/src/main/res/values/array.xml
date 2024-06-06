@@ -27,6 +27,7 @@
         <item>E</item>
         <item>F</item>
     </string-array>
+
     <string-array name="rank_test_txt">
         <item>강원도 oo시, 점심 카페 바닷가. 차에서 자다가 동이 틀 무렵 바닷가로 가서 해돋이를 감상함.</item>
         <item>커플한테 인기만점이라는 oo체험장에 드디어 입성! 체험비도 가성비있고 멀다는게 조금 흠이지만 전체적으로
@@ -37,4 +38,28 @@
         <item>데이트 분위기 엄청나다는 카페, 좀 늦긴 했지만 시간내어 방문함</item>
     </string-array>
 
+    <string-array name="식당_카페">
+        <item>브레라 레스토랑</item>
+        <item>더로열푸드앤드링크</item>
+        <item>바이두부</item>
+        <item>스카프</item>
+        <item>콤포타블 남산</item>
+    </string-array>
+
+    <string-array name="위도">
+        <item>37.54837</item>
+        <item>37.54729</item>
+        <item>37.5472872</item>
+        <item>37.54550</item>
+        <item>37.54906</item>
+    </string-array>
+
+    <string-array name="경도">
+        <item>127.0070</item>
+        <item>126.9839</item>
+        <item>126.9839168</item>
+        <item>126.9871</item>
+        <item>126.9835</item>
+
+    </string-array>
 </resources>
