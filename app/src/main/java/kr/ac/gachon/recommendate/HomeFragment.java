@@ -21,7 +21,7 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    private Button btnOpenRecommend;
+    private Button btnOpenRecommend, btnOpenMap;
     private ListView listView;
     private ArrayList<RecommendDate> recommendDates;
     public HomeFragment() {
@@ -43,6 +43,18 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        // 1. Map 열기 버튼 이벤트
+        btnOpenMap = rootView.findViewById(R.id.btn_open_map);
+        btnOpenMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LocationMap.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         listView = rootView.findViewById(R.id.list_recommend_dates);
 

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -40,13 +42,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Register"
-            android:theme="@android:style/Theme.Holo.Light.Dialog"/>
+        <activity android:name=".Register" />
         <activity android:name=".FindPWPage"/>
 
         <!-- nav1. 랭킹Top3 페이지 및 코스 페이지 -->
         <activity android:name=".ShowCourseList"/>
         <activity android:name=".CourseDetail"/>
+
+        <!-- Google Map Api Key & 지도 페이지-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${google_map_api_key}"
+            />
+        <activity android:name=".LocationMap"/>
 
     </application>
 
