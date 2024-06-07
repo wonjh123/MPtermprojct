@@ -8,8 +8,17 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ResultActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private DateItemAdapter adapter;
+    private List<String> date_items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +50,19 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
 
+        recyclerView = findViewById(R.id.date_item_recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new DateItemAdapter(getDateItemFromDatabase());
+        recyclerView.setAdapter(adapter);
+    }
 
+
+    private List<String> getDateItemFromDatabase() {
+        List<String> data = new ArrayList<>();
+        data.add("Item 1");
+        data.add("Item 2");
+        data.add("Item 3");
+        // 필요에 따라 데이터를 추가합니다.
+        return data;
     }
 }

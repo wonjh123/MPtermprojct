@@ -58,5 +58,8 @@ dependencies {
     implementation("com.google.firebase:firebase-bom:32.0.0")
 
     implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-firestore:24.0.0")
+
+
 
 }
