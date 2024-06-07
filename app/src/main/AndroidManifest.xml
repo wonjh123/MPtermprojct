@@ -28,6 +28,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <!-- 추천 화면 -->
         <activity android:name=".RecommendActivity"/>
         <activity android:name=".TagActivity"/>
         <activity android:name=".ResultActivity"/>
