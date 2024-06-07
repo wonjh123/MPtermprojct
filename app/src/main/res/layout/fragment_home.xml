@@ -42,19 +42,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/button_border_round_primary"
+        android:layout_marginBottom="40dp"
+        android:background="@color/primaryColorDark"
         android:text="Recommend"
         android:textSize="18sp"
         android:textColor="@color/black"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/primaryColor">
-
-    </TextView>
 
     <TextView
         android:id="@+id/text_last_dates"
@@ -64,15 +56,9 @@
         android:paddingVertical="8dp"
         android:text="당신을 위한 추천"
         android:fontFamily="@font/gmarketsans_ttf_medium"
+        android:background="@color/white"
         android:textSize="24sp">
     </TextView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="@color/primaryColor">
-    </TextView>
-
 
 
     <ListView
@@ -81,7 +67,6 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:paddingTop="5dp"
-        android:paddingHorizontal="10dp"
         android:background="@color/white"
         android:divider="@color/white"
         android:dividerHeight="10dp" />

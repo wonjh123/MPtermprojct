@@ -77,7 +77,7 @@ public class LoginPage extends AppCompatActivity {
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*String emailText = email_EditText.getText().toString();
+                String emailText = email_EditText.getText().toString();
                 String pwText = pw_EditText.getText().toString();
 
                 if (emailText.isEmpty() || pwText.isEmpty()) {
@@ -85,11 +85,11 @@ public class LoginPage extends AppCompatActivity {
                     return;
                 }
 
-                signInWithEmailPassword(emailText, pwText);*/
+                signInWithEmailPassword(emailText, pwText);
 
-                Intent intent = new Intent(getApplicationContext(), NaviActivity.class);
+                /*Intent intent = new Intent(getApplicationContext(), NaviActivity.class);
                 startActivity(intent);
-                finish();
+                finish();*/
             }
         });
 
