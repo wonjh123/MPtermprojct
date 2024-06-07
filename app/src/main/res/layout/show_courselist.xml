@@ -5,8 +5,22 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <include layout="@layout/header_button_textview_layout" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <include
+            android:id="@+id/header"
+            layout="@layout/header_button_textview_layout" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="70dp"
+            android:text="데이트 코스 목록"
+            android:textSize="30dp"
+            />
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/course_listView"
