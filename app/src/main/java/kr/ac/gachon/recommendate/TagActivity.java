@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,38 +49,15 @@ public class TagActivity extends AppCompatActivity {
             }
         });
 
-        /*Button btnTag2 = findViewById(R.id.btn_tag2);
-
-        btnTag2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 토글 상태 변경
-                isToggleOn2 = !isToggleOn2;
-
-                // 토글 상태에 따라 배경색 변경
-                if (isToggleOn2) {
-                    btnTag2.setBackgroundColor(Color.BLUE); // ON 상태 배경색
-                } else {
-                    btnTag2.setBackgroundColor(Color.RED); // OFF 상태 배경색
-                }
+        ToggleButton toggleButton = findViewById(R.id.toggle_button);
+        toggleButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            // isChecked가 true이면 버튼이 체크된 상태입니다.
+            if (isChecked) {
+                // TODO: 버튼이 체크된 상태일 때의 동작
+            } else {
+                // TODO: 버튼이 체크되지 않은 상태일 때의 동작
             }
         });
 
-        Button btnTag3 = findViewById(R.id.btn_tag3);
-
-        btnTag3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 토글 상태 변경
-                isToggleOn = !isToggleOn;
-
-                // 토글 상태에 따라 배경색 변경
-                if (isToggleOn) {
-                    btnTag3.setBackgroundColor(Color.BLUE); // ON 상태 배경색
-                } else {
-                    btnTag3.setBackgroundColor(Color.RED); // OFF 상태 배경색
-                }
-            }
-        });*/
     }
 }

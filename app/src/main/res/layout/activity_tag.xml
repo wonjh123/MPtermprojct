@@ -1,68 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".TagActivity">
 
     <include layout="@layout/header_button_textview_layout" />
 
-    <TextView
-        android:id="@+id/blank_box"
-        android:layout_width="wrap_content"
-        android:layout_height="68dp">
-    </TextView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <Button
-        android:id="@+id/btn_tag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="16dp"
-        android:layout_below="@+id/blank_box"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="대형 카페"
-        android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        <ToggleButton
+            android:id="@+id/toggle_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/toggle_button"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:textColor="@color/toggle_text_color"
+            android:textOff="OFF"
+            android:textOn="ON" />
 
-    <ToggleButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></ToggleButton>
-
-    <!--<Button
-        android:id="@+id/btn_tag2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_tag"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:text="실내 데이트"
-        android:textColor="@android:color/white"
-        android:textSize="16sp" />
-
-    <Button
-        android:id="@+id/btn_tag3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_tag2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:text="바다"
-        android:textColor="@android:color/white"
-        android:textSize="16sp" />-->
+    </RelativeLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_get_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/button_border_round_primary"
         android:text="결과 보러가기"
-        android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_gravity="bottom" />
 
-</RelativeLayout>
+</LinearLayout>

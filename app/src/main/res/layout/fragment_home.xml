@@ -14,6 +14,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="RecommendDate"
+        android:fontFamily="@font/gmarketsans_ttf_light"
+        android:textColor="@color/primaryColorDark"
         android:textSize="36sp">
     </TextView>
 
@@ -32,6 +34,7 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/button_stroke"
         android:text="Open Map"
+        android:fontFamily="@font/gmarketsans_ttf_bold"
         android:textSize="18sp" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -40,16 +43,18 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/button_stroke"
+        android:background="@drawable/button_border_round_primary"
         android:text="Recommend"
         android:textSize="18sp"
         android:textColor="@color/black"/>
 
-    <View
-        android:id="@+id/divider_btn_recommend"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/Gray" />
+        android:layout_height="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/primaryColor">
+
+    </TextView>
 
     <TextView
         android:id="@+id/text_last_dates"
@@ -58,14 +63,17 @@
         android:gravity="center"
         android:paddingVertical="8dp"
         android:text="당신을 위한 추천"
+        android:fontFamily="@font/gmarketsans_ttf_medium"
         android:textSize="24sp">
     </TextView>
 
-    <View
-        android:id="@+id/divider_text_last_dates"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/Gray" />
+        android:layout_height="5dp"
+        android:background="@color/primaryColor">
+    </TextView>
+
+
 
     <ListView
         android:id="@+id/list_recommend_dates"
@@ -78,139 +86,4 @@
         android:divider="@color/white"
         android:dividerHeight="10dp" />
 
-    <!--<ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:id="@+id/frame_last_date1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/title_recommend_date1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="15dp"
-                    android:text="1. 어쩌구 데이트"
-                    android:textSize="20sp">
-                </TextView>
-
-                <TextView
-                    android:id="@+id/tag_recommend_date_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical|end"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="15dp"
-                    android:text="#카페 #감성"
-                    android:textSize="16sp">
-                </TextView>
-
-                <Button
-                    android:id="@+id/btn_open_recommend_date1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:paddingVertical="15dp">
-                </Button>
-            </FrameLayout>
-
-            <View
-                android:id="@+id/divider_frame_recommend_date1"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/black" />
-
-            <FrameLayout
-                android:id="@+id/frame_recommend_date2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/title_recommend_date2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="15dp"
-                    android:text="2. 어쩌구 데이트"
-                    android:textSize="20sp">
-                </TextView>
-
-                <TextView
-                    android:id="@+id/date_recommend_date2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical|end"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="15dp"
-                    android:text="#바다 #노을"
-                    android:textSize="16sp">
-                </TextView>
-
-                <Button
-                    android:id="@+id/btn_open_recommend_date2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:paddingVertical="15dp">
-                </Button>
-            </FrameLayout>
-
-            <View
-                android:id="@+id/divider_frame_recommend_date2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/black" />
-
-            <FrameLayout
-                android:id="@+id/frame_recommend_date3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/title_recommend_date3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="15dp"
-                    android:text="3. 저쩌구 데이트"
-                    android:textSize="20sp">
-                </TextView>
-
-                <TextView
-                    android:id="@+id/date_recommend_date3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical|end"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="15dp"
-                    android:text="2004.10.31"
-                    android:textSize="20sp">
-                </TextView>
-
-                <Button
-                    android:id="@+id/btn_open_recommend_date3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:paddingVertical="15dp">
-                </Button>
-            </FrameLayout>
-            <View
-                android:id="@+id/divider_frame_last_date3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/black" />
-        </LinearLayout>
-    </ScrollView>-->
 </LinearLayout>
