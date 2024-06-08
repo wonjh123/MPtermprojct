@@ -95,7 +95,6 @@ public class ShowCourseList extends Activity {
                                 intent.putExtra("likeNum", like);
 
                                 startActivity(intent);
-
                             }
                         });
                         break;
@@ -110,8 +109,8 @@ public class ShowCourseList extends Activity {
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                                 // 클릭한 해당 글의 keyword와 like수를 호출
-                                String key = ((RankList)adapter.getItem(position)).getKey();
-                                String like = ((RankList)adapter.getItem(position)).getLike();
+                                String key = ((RankList)cafe_adapter.getItem(position)).getKey();
+                                String like = ((RankList)cafe_adapter.getItem(position)).getLike();
 
                                 // CourseDetail.class로 보내기
                                 Intent intent = new Intent(ShowCourseList.this, CourseDetail.class);
@@ -134,8 +133,8 @@ public class ShowCourseList extends Activity {
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                                 // 클릭한 해당 글의 keyword와 like수를 호출
-                                String key = ((RankList)adapter.getItem(position)).getKey();
-                                String like = ((RankList)adapter.getItem(position)).getLike();
+                                String key = ((RankList)food_adapter.getItem(position)).getKey();
+                                String like = ((RankList)food_adapter.getItem(position)).getLike();
 
                                 // CourseDetail.class로 보내기
                                 Intent intent = new Intent(ShowCourseList.this, CourseDetail.class);
