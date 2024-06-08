@@ -1,0 +1,6 @@
+kr.ac.gachon.recommendate.test.app-jetified-core-1.5.0-0 /Users/wonjihyeon/.gradle/caches/transforms-3/068da68351e76732465fec0654fffcc8/transformed/jetified-core-1.5.0/res
+kr.ac.gachon.recommendate.test.app-jetified-annotation-experimental-1.3.0-1 /Users/wonjihyeon/.gradle/caches/transforms-3/bb8adc11b2221b1f16af60fba74db083/transformed/jetified-annotation-experimental-1.3.0/res
+kr.ac.gachon.recommendate.test.app-androidTest-2 /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/build/generated/res/resValues/androidTest/debug
+kr.ac.gachon.recommendate.test.app-mergeDebugAndroidTestResources-3 /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+kr.ac.gachon.recommendate.test.app-mergeDebugAndroidTestResources-4 /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+kr.ac.gachon.recommendate.test.app-merged_res-5 /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/build/intermediates/merged_res/debugAndroidTest
