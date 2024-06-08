@@ -140,7 +140,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e59578bc-8713-41ab-a327-ddee1e6ded26" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
@@ -233,7 +232,7 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/MyPageActivity&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/lapai/mobile_term/RecommenDate6&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
