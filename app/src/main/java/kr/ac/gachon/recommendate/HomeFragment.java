@@ -2,9 +2,6 @@ package kr.ac.gachon.recommendate;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,29 +9,21 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.graphics.drawable.RoundedBitmapDrawable;
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.fragment.app.Fragment;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class HomeFragment extends Fragment {
 
-    private Button btnOpenMap;
-    private ImageView imgMap; // ImageView for the map
-    private Button btnOpenRecommend;
+    private Button btnOpenRecommend, btnOpenMap;
     private ListView listView;
     private ArrayList<RecommendDate> recommendDates;
-
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -44,34 +33,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        String mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=37.7749,-122.4194&zoom=12&size=400x400&key=AIzaSyBjJwQBmFDQhdP-nmBmw2JXDvl91OQE4EA";
-
         // 1. Map 열기 버튼 이벤트
         btnOpenMap = rootView.findViewById(R.id.btn_open_map);
-        imgMap = rootView.findViewById(R.id.img_map);
-
-        // Load the image in a background thread
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        executor.execute(() -> {
-            try {
-                URL url = new URL(mapUrl);
-                Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-
-                // Create rounded bitmap drawable
-                RoundedBitmapDrawable roundedDrawable = RoundedBitmapDrawableFactory.create(getResources(), bmp);
-                roundedDrawable.setCornerRadius(24); // Set corner radius
-                roundedDrawable.setAntiAlias(true);
-
-                // Set the image on the main thread
-                getActivity().runOnUiThread(() -> {
-                    imgMap.setImageDrawable(roundedDrawable);
-                });
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-
-
         btnOpenMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +45,6 @@ public class HomeFragment extends Fragment {
 
         // 2. 추천 버튼
         btnOpenRecommend = rootView.findViewById(R.id.btn_open_recommend);
-
         btnOpenRecommend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,7 +64,7 @@ public class HomeFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                RecommendDate selectedDate = recommendDates.get(position); // 클릭된 아이템 가져오기
+                HomeFragment.RecommendDate selectedDate = recommendDates.get(position); // 클릭된 아이템 가져오기
                 Intent intent = new Intent(getActivity(), CourseDetail.class); // 다음 액티비티로 전환할 인텐트 생성
                 startActivity(intent); // 다음 액티비티로 전환
             }
