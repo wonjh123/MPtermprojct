@@ -5,6 +5,8 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+    <include layout="@layout/header_button_textview_layout" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,7 +51,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
         android:minWidth="0dp"
         android:minHeight="0dp"
@@ -57,13 +58,4 @@
         android:textColor="@color/accentColor"
         android:layout_marginBottom="20dp"/>
 
-    <Button
-        android:id="@+id/back_login_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@android:color/transparent"
-        android:minHeight="0dp"
-        android:text="로그인 화면으로 돌아가기"
-        android:textColor="@color/black" />
 </LinearLayout>

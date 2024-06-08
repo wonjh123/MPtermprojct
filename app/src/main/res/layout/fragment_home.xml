@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@drawable/gradient_primary_dark"
     tools:context=".HomeFragment">
 
     <TextView
@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="RecommendDate"
+        android:background="@color/white"
         android:fontFamily="@font/gmarketsans_ttf_light"
         android:textColor="@color/primaryColorDark"
         android:textSize="36sp">
@@ -25,17 +26,37 @@
         android:layout_height="1dp"
         android:background="@color/Gray" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:id="@+id/img_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <Button
+            android:id="@+id/btn_open_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
+    </FrameLayout>
+
+    <!--<ImageButton
         android:id="@+id/btn_open_map"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/button_stroke"
-        android:text="Open Map"
-        android:fontFamily="@font/gmarketsans_ttf_bold"
-        android:textSize="18sp" />
+        />-->
+
+    <!--android:background="@drawable/button_stroke"-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_open_recommend"
@@ -56,7 +77,7 @@
         android:paddingVertical="8dp"
         android:text="당신을 위한 추천"
         android:fontFamily="@font/gmarketsans_ttf_medium"
-        android:background="@color/white"
+        android:background="@drawable/top_radius"
         android:textSize="24sp">
     </TextView>
 
