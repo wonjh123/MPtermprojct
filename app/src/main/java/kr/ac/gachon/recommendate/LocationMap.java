@@ -1,7 +1,7 @@
 
-package kr.ac.gachon.recommendate;
+        package kr.ac.gachon.recommendate;
 
-import android.Manifest;
+        import android.Manifest;
         import android.annotation.SuppressLint;
         import android.app.FragmentManager;
         import android.content.pm.PackageManager;
@@ -177,6 +177,7 @@ import android.Manifest;
                         return true;
                     }
                 });
+
                  */
 
             }
@@ -212,8 +213,9 @@ import android.Manifest;
                             .position(new LatLng(Double.parseDouble(mark_lati[i]), Double.parseDouble(mark_long[i])))
                             .title(mark_title[i]);
 
-                    googleMap.addMarker(markerOptions1);
+                    map.addMarker(markerOptions1);
                 }
+
 
                 // 지도 이동 시
                 googleMap.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
@@ -302,6 +304,28 @@ import android.Manifest;
                 super.onWindowFocusChanged(hasFocus);
                 mpHeight = rootLayout.getHeight();
             }
+
+
+
+            /*
+            @Override
+            public void onMapReady(final GoogleMap googleMap){
+                myMap = googleMap;
+                LatLng seoul = new LatLng(37.56, 126.97);
+                MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.position(seoul);
+                markerOptions.title("서울");
+                markerOptions.snippet("수도");
+                myMap.addMarker(markerOptions);
+
+                myMap.moveCamera(CameraUpdateFactory.newLatLng(seoul));
+                myMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+                googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+
+            }
+
+             */
+
         }
 
 
