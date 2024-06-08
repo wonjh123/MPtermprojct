@@ -86,6 +86,10 @@ public class LoginPage extends AppCompatActivity {
                 }
 
                 signInWithEmailPassword(emailText, pwText);
+
+                /*Intent intent = new Intent(getApplicationContext(), NaviActivity.class);
+                startActivity(intent);
+                finish();*/
             }
         });
 
