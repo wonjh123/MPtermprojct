@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,14 @@ public class FindPWPage extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.find_pw);
 
+        ImageButton btnArrowBack = findViewById(R.id.btn_arrow_back);
+        btnArrowBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish(); // 현재 액티비티 종료, 이전 화면으로 돌아감
+            }
+        });
+
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
@@ -49,16 +58,6 @@ public class FindPWPage extends Activity {
                 email = email_editText.getText().toString().trim();
                 name = name_editText.getText().toString().trim();
                 findPassword(email, name);
-            }
-        });
-
-        // 3. 로그인 화면으로 돌아가기 버튼 클릭 시
-        backToLoginBtn = findViewById(R.id.back_login_btn);
-        backToLoginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LoginPage.class);
-                startActivity(intent);
             }
         });
     }
