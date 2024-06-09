@@ -13,13 +13,13 @@
         android:background="@drawable/button_stroke" />
 
     <TextView
-        android:id="@+id/course_name"
+        android:id="@+id/keyword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/photo"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/photo"
-        android:text="course_name"
+        android:text="keyword"
         android:textSize="18sp" />
 
     <ImageView
@@ -32,7 +32,7 @@
         android:src="@drawable/favorite_24px" />
 
     <TextView
-        android:id="@+id/likeCount"
+        android:id="@+id/like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"

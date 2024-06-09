@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/header_button_textview_layout" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginVertical="40dp"
+        android:text="비밀번호를 잊어버리셨나요?"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/enter_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:background="@drawable/button_stroke_bgr_white"
+        android:hint="Email"
+        android:paddingVertical="10dp"
+        android:paddingStart="20dp" />
+
+    <EditText
+        android:id="@+id/enter_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_stroke_bgr_white"
+        android:hint="Name"
+        android:paddingVertical="10dp"
+        android:paddingStart="20dp" />
+
+    <TextView
+        android:id="@+id/set_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="30sp"
+        />
+
+
+    <Button
+        android:id="@+id/check_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="확인"
+        android:textColor="@color/accentColor"
+        android:layout_marginBottom="20dp"/>
+
+</LinearLayout>

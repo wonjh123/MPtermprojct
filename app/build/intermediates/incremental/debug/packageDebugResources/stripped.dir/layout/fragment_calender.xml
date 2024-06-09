@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_primary_dark"
+    android:orientation="vertical"
+    tools:context=".CalenderFragment">
+
+    <TextView
+        android:id="@+id/text_top3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fontFamily="@font/gmarketsans_ttf_medium"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="지금 뜨는 데이트 코스"
+        android:textSize="26sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/other_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="start"
+        android:padding="10dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="다른 코스 더 보기"
+        android:textColor="@color/primaryColorDark"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/rank_top3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:descendantFocusability="beforeDescendants"
+        android:divider="@color/white"
+        android:dividerHeight="10dp" />
+
+</LinearLayout>

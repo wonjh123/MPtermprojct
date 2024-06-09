@@ -41,7 +41,7 @@
                     android:textOn="" />
 
                 <TextView
-                    android:id="@+id/likeCount"
+                    android:id="@+id/like_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBaseline="@+id/like_btn"
@@ -52,7 +52,7 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/course_name"
+                android:id="@+id/show_keyword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -62,11 +62,11 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <!--<androidx.recyclerview.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/date_item_recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />-->
+                android:orientation="vertical" />
 
             <TextView
                 android:id="@+id/text_container"
