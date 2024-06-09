@@ -10,8 +10,8 @@
 .idea/caches/build_file_checksums.ser
 
 # 빌드 디렉터리
-build/
-app/build/
+# build/
+# app/build/
 
 # Local configuration file (sdk path, etc)
 local.properties
