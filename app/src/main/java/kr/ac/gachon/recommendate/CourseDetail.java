@@ -8,6 +8,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CourseDetail extends AppCompatActivity {
 
@@ -49,8 +54,8 @@ public class CourseDetail extends AppCompatActivity {
 
         // 2. 해당 keyword와 like에 해당하는 글 DB에서 불러오기
         /*
-        * Db 부분
-        * */
+         * Db 부분
+         * */
 
         // 화면 테스트를 위해 임시로 array.xml 파일에서 keyword, like 가져와서 비교하는 식으로 진행
 
@@ -59,12 +64,25 @@ public class CourseDetail extends AppCompatActivity {
         DBtext = getResources().getStringArray(R.array.rank_test_txt);
         // DBUser = getResources().getStringArray(R.array.rank_test_user);
 
-        for(int i = 0; i < DBKey.length; i++){
-            if (DBKey[i] == keyword && DBLike[i] == like){
+        for (int i = 0; i < DBKey.length; i++) {
+            if (DBKey[i] == keyword && DBLike[i] == like) {
                 textContainer.setText(DBtext[i]);
             }
         }
 
+        RecyclerView recyclerView = findViewById(R.id.date_item_recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        DateItemAdapter adapter = new DateItemAdapter(getDateItemFromDatabase());
+        recyclerView.setAdapter(adapter);
 
+    }
+
+    private List<String> getDateItemFromDatabase() {
+        List<String> date_items = new ArrayList<>();
+        date_items.add("Item 1");
+        date_items.add("Item 2");
+        date_items.add("Item 3");
+        // 필요에 따라 데이터를 추가합니다.
+        return date_items;
     }
 }
