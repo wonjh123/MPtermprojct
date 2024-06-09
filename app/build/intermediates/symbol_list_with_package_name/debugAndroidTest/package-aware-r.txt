@@ -1,0 +1,3 @@
+kr.ac.gachon.recommendate.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

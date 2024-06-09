@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="rank_test_keyword">
+        <item>#강원도</item>
+        <item>#체험</item>
+        <item>#맛집탐방</item>
+        <item>#노을 #맛집탐방</item>
+        <item>#수원 #당일치기</item>
+        <item>#카페</item>
+
+    </string-array>
+    <string-array name="rank_test_like">
+        <item>253</item>
+        <item>189</item>
+        <item>135</item>
+        <item>120</item>
+        <item>80</item>
+        <item>50</item>
+    </string-array>
+    <string-array name="rank_test_txt">
+        <item>강원도 oo시, 점심 카페 바닷가. 차에서 자다가 동이 틀 무렵 바닷가로 가서 해돋이를 감상함.</item>
+        <item>커플한테 인기만점이라는 oo체험장에 드디어 입성! 체험비도 가성비있고 멀다는게 조금 흠이지만 전체적으로
+        만족스러움!</item>
+        <item>우리 둘다 현지 맛집탐방 좋아해서 이 지역 주민들만 안다는 찐맛집으로 출발</item>
+        <item>노을하면 서해안. 가면서 유명 맛집 한번 들러서 분위기 내주고 노을로 마무리</item>
+        <item>수원 스타필드</item>
+        <item>데이트 분위기 엄청나다는 카페, 좀 늦긴 했지만 시간내어 방문함</item>
+    </string-array>
+    <string-array name="rank_test_user">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+    </string-array>
+    <string-array name="경도">
+        <item>127.0070</item>
+        <item>126.9839</item>
+        <item>126.9839168</item>
+        <item>126.9871</item>
+        <item>126.9835</item>
+    </string-array>
+    <string-array name="식당_카페">
+        <item>브레라 레스토랑</item>
+        <item>더로열푸드앤드링크</item>
+        <item>바이두부</item>
+        <item>스카프</item>
+        <item>콤포타블 남산</item>
+    </string-array>
+    <string-array name="위도">
+        <item>37.54837</item>
+        <item>37.54729</item>
+        <item>37.5472872</item>
+        <item>37.54550</item>
+        <item>37.54906</item>
+    </string-array>
+    <color name="Gold">#FFFFD700</color>
+    <color name="Gray">#a0a0a0</color>
+    <color name="accentColor">#FF69B4</color>
+    <color name="black">#FF000000</color>
+    <color name="lightGray">#e9e9e9</color>
+    <color name="primaryColor">#F9EBEA</color>
+    <color name="primaryColorDark">#FFB6C1</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">recommendate</string>
+    <string name="default_web_client_id" translatable="false">386388936944-77d9u8ol5rpnvk4egpmmba3ba7fraj7f.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">386388936944</string>
+    <string name="google_api_key" translatable="false">AIzaSyAcb-FSHghlIlvJ94VBnLczT4w7C74VNcY</string>
+    <string name="google_app_id" translatable="false">1:386388936944:android:b869cac210ae8de5809a35</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAcb-FSHghlIlvJ94VBnLczT4w7C74VNcY</string>
+    <string name="google_storage_bucket" translatable="false">recommendate-d8f92.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="project_id" translatable="false">recommendate-d8f92</string>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark</item>
+        <item name="colorAccent">@color/accentColor</item>
+
+        
+        <item name="android:textViewStyle">@style/customTextViewFontStyle</item>
+        <item name="android:buttonStyle">@style/customButtonFontStyle</item>
+        <item name="android:editTextStyle">@style/customEditTextFontStyle</item>
+        <item name="android:radioButtonStyle">@style/customRadioButtonFontStyle</item>
+        <item name="android:checkboxStyle">@style/customCheckboxFontStyle</item>
+    </style>
+    <style name="Base.Theme.Recommendate" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+    <style name="Theme.Recommendate" parent="Base.Theme.Recommendate"/>
+    <style name="customButtonFontStyle" parent="@android:style/Widget.DeviceDefault.Button.Borderless">
+        <item name="android:fontFamily">@font/custom_font_family</item>
+    </style>
+    <style name="customCheckboxFontStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.CheckBox">
+        <item name="android:fontFamily">@font/custom_font_family</item>
+    </style>
+    <style name="customEditTextFontStyle" parent="@android:style/Widget.DeviceDefault.EditText">
+        <item name="android:fontFamily">@font/custom_font_family</item>
+    </style>
+    <style name="customRadioButtonFontStyle" parent="@android:style/Widget.DeviceDefault.CompoundButton.RadioButton">
+        <item name="android:fontFamily">@font/custom_font_family</item>
+    </style>
+    <style name="customTextViewFontStyle" parent="@android:style/Widget.DeviceDefault.TextView">
+        <item name="android:fontFamily">@font/custom_font_family</item>
+    </style>
+</resources>
