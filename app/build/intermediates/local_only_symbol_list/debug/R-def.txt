@@ -62,7 +62,10 @@ id calenderFragment
 id check_btn
 id course_listView
 id date_item_list
+id date_item_location
+id date_item_name
 id date_item_recyclerView
+id date_item_tags
 id divider
 id divider_profile_info
 id divider_title
@@ -110,6 +113,7 @@ id show_keyword
 id sign_btn
 id sign_in_button
 id tagTextView
+id tag_text
 id tagsRecyclerView
 id text_container
 id text_header_title
@@ -134,12 +138,14 @@ layout fragment_home
 layout fragment_my_page
 layout header_button_textview_layout
 layout home_recommend_item
+layout item_date
 layout item_tag
 layout last_dates_list_item
 layout login_page
 layout mygoogle_map
 layout register_popup
 layout show_courselist
+layout tag_item
 layout tag_toggle_item
 layout test
 menu navi_menu

@@ -35,7 +35,6 @@
                 android:hint="이름을 저장해주세요"
                 android:textColorHint="@color/primaryColorDark" />
 
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/date_item_recyclerView"
                 android:layout_width="match_parent"
