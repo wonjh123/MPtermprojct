@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="@drawable/stroke_bottom_only"
     tools:context=".RecommendActivity">
 
     <ImageButton
@@ -22,9 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/btn_arrow_back"
-        android:layout_alignTop="@id/btn_arrow_back"
-        android:layout_alignBottom="@id/btn_arrow_back"
+        android:layout_centerVertical="true"
         android:layout_marginStart="10dp"
+        android:fontFamily="@font/gmarketsans_ttf_medium"
         android:textSize="20sp" />
 
 

@@ -78,7 +78,7 @@ public class ResultActivity extends AppCompatActivity {
 
         if (recommendedRestaurant != null) {
             Map<String, Object> restaurantItem = new HashMap<>();
-            restaurantItem.put("name", "Recommended Restaurant: " + recommendedRestaurant.get("name"));
+            restaurantItem.put("name", recommendedRestaurant.get("name"));
             restaurantItem.put("tags", recommendedRestaurant.get("tags").toString());
             restaurantItem.put("latitude", recommendedRestaurant.get("latitude"));
             restaurantItem.put("longitude", recommendedRestaurant.get("longitude"));
@@ -94,7 +94,7 @@ public class ResultActivity extends AppCompatActivity {
 
         if (recommendedCafe != null) {
             Map<String, Object> cafeItem = new HashMap<>();
-            cafeItem.put("name", "Recommended Cafe: " + recommendedCafe.get("name"));
+            cafeItem.put("name", recommendedCafe.get("name"));
             cafeItem.put("tags", recommendedCafe.get("tags").toString());
             cafeItem.put("latitude", recommendedCafe.get("latitude"));
             cafeItem.put("longitude", recommendedCafe.get("longitude"));
@@ -110,7 +110,7 @@ public class ResultActivity extends AppCompatActivity {
 
         if (recommendedActivity != null) {
             Map<String, Object> activityItem = new HashMap<>();
-            activityItem.put("name", "Recommended Activity: " + recommendedActivity.get("name"));
+            activityItem.put("name", recommendedActivity.get("name"));
             activityItem.put("tags", recommendedActivity.get("tags").toString());
             activityItem.put("latitude", recommendedActivity.get("latitude"));
             activityItem.put("longitude", recommendedActivity.get("longitude"));

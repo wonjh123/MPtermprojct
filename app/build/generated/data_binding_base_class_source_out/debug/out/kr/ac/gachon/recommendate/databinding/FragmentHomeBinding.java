@@ -30,9 +30,6 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final AppCompatButton btnOpenRecommend;
 
   @NonNull
-  public final View dividerTitle;
-
-  @NonNull
   public final ImageView imgMap;
 
   @NonNull
@@ -45,13 +42,12 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final TextView title;
 
   private FragmentHomeBinding(@NonNull LinearLayout rootView, @NonNull Button btnOpenMap,
-      @NonNull AppCompatButton btnOpenRecommend, @NonNull View dividerTitle,
-      @NonNull ImageView imgMap, @NonNull ListView listRecommendDates,
-      @NonNull TextView textLastDates, @NonNull TextView title) {
+      @NonNull AppCompatButton btnOpenRecommend, @NonNull ImageView imgMap,
+      @NonNull ListView listRecommendDates, @NonNull TextView textLastDates,
+      @NonNull TextView title) {
     this.rootView = rootView;
     this.btnOpenMap = btnOpenMap;
     this.btnOpenRecommend = btnOpenRecommend;
-    this.dividerTitle = dividerTitle;
     this.imgMap = imgMap;
     this.listRecommendDates = listRecommendDates;
     this.textLastDates = textLastDates;
@@ -97,12 +93,6 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.divider_title;
-      View dividerTitle = ViewBindings.findChildViewById(rootView, id);
-      if (dividerTitle == null) {
-        break missingId;
-      }
-
       id = R.id.img_map;
       ImageView imgMap = ViewBindings.findChildViewById(rootView, id);
       if (imgMap == null) {
@@ -127,8 +117,8 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((LinearLayout) rootView, btnOpenMap, btnOpenRecommend,
-          dividerTitle, imgMap, listRecommendDates, textLastDates, title);
+      return new FragmentHomeBinding((LinearLayout) rootView, btnOpenMap, btnOpenRecommend, imgMap,
+          listRecommendDates, textLastDates, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

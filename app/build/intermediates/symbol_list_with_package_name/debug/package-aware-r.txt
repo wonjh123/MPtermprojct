@@ -3173,6 +3173,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable stroke_bottom_only
 drawable test_level_drawable
 drawable toggle_button
 drawable tooltip_frame_dark
@@ -3700,7 +3701,6 @@ id tag_on_receive_content_listener
 id tag_on_receive_content_mime_types
 id tag_screen_reader_focusable
 id tag_state_description
-id tag_text
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners

@@ -75,6 +75,8 @@ public class TagActivity extends AppCompatActivity {
         activityRecyclerView.setAdapter(activityAdapter);
     }
 
+
+
     private List<String> getRestaurantTags() {
         List<String> restaurantTags = new ArrayList<>();
         restaurantTags.add("#한식");

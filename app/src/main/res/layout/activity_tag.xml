@@ -22,27 +22,30 @@
                 android:id="@+id/recyclerView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
                 android:orientation="horizontal"
                 android:padding="10dp"
-                android:scrollbars="horizontal"/>
+                android:scrollbars="none"/>
 
             <!-- 두 번째 RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
                 android:orientation="horizontal"
                 android:padding="10dp"
-                android:scrollbars="horizontal" />
+                android:scrollbars="none" />
 
             <!-- 세 번째 RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
                 android:orientation="horizontal"
                 android:padding="10dp"
-                android:scrollbars="horizontal" />
+                android:scrollbars="none" />
 
         </LinearLayout>
 

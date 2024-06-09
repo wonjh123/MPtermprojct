@@ -4,7 +4,8 @@ package kr.ac.gachon.recommendate.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +18,10 @@ import kr.ac.gachon.recommendate.R;
 
 public final class ItemDateBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final RelativeLayout rootView;
+
+  @NonNull
+  public final RelativeLayout dateItemList;
 
   @NonNull
   public final TextView dateItemLocation;
@@ -28,17 +32,23 @@ public final class ItemDateBinding implements ViewBinding {
   @NonNull
   public final TextView dateItemTags;
 
-  private ItemDateBinding(@NonNull LinearLayout rootView, @NonNull TextView dateItemLocation,
-      @NonNull TextView dateItemName, @NonNull TextView dateItemTags) {
+  @NonNull
+  public final ImageView photo;
+
+  private ItemDateBinding(@NonNull RelativeLayout rootView, @NonNull RelativeLayout dateItemList,
+      @NonNull TextView dateItemLocation, @NonNull TextView dateItemName,
+      @NonNull TextView dateItemTags, @NonNull ImageView photo) {
     this.rootView = rootView;
+    this.dateItemList = dateItemList;
     this.dateItemLocation = dateItemLocation;
     this.dateItemName = dateItemName;
     this.dateItemTags = dateItemTags;
+    this.photo = photo;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public RelativeLayout getRoot() {
     return rootView;
   }
 
@@ -63,6 +73,8 @@ public final class ItemDateBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      RelativeLayout dateItemList = (RelativeLayout) rootView;
+
       id = R.id.date_item_location;
       TextView dateItemLocation = ViewBindings.findChildViewById(rootView, id);
       if (dateItemLocation == null) {
@@ -81,8 +93,14 @@ public final class ItemDateBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemDateBinding((LinearLayout) rootView, dateItemLocation, dateItemName,
-          dateItemTags);
+      id = R.id.photo;
+      ImageView photo = ViewBindings.findChildViewById(rootView, id);
+      if (photo == null) {
+        break missingId;
+      }
+
+      return new ItemDateBinding((RelativeLayout) rootView, dateItemList, dateItemLocation,
+          dateItemName, dateItemTags, photo);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

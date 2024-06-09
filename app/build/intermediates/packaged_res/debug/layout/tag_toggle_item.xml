@@ -10,7 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/toggle_button"
-        android:textColor="@color/Gray"
+        android:textColor="@color/toggle_text_color"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
         />
-
 </LinearLayout>

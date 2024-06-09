@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -20,11 +20,11 @@ public final class TagItemBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final TextView tagText;
+  public final ToggleButton toggleButton;
 
-  private TagItemBinding(@NonNull LinearLayout rootView, @NonNull TextView tagText) {
+  private TagItemBinding(@NonNull LinearLayout rootView, @NonNull ToggleButton toggleButton) {
     this.rootView = rootView;
-    this.tagText = tagText;
+    this.toggleButton = toggleButton;
   }
 
   @Override
@@ -54,13 +54,13 @@ public final class TagItemBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.tag_text;
-      TextView tagText = ViewBindings.findChildViewById(rootView, id);
-      if (tagText == null) {
+      id = R.id.toggleButton;
+      ToggleButton toggleButton = ViewBindings.findChildViewById(rootView, id);
+      if (toggleButton == null) {
         break missingId;
       }
 
-      return new TagItemBinding((LinearLayout) rootView, tagText);
+      return new TagItemBinding((LinearLayout) rootView, toggleButton);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

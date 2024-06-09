@@ -3172,6 +3172,7 @@ int drawable notification_template_icon_bg 0x7f080104
 int drawable notification_template_icon_low_bg 0x7f080105
 int drawable notification_tile_bg 0x7f080106
 int drawable notify_panel_notification_icon_bg 0x7f080107
+int drawable stroke_bottom_only 0x7f08010d
 int drawable test_level_drawable 0x7f080108
 int drawable toggle_button 0x7f080109
 int drawable tooltip_frame_dark 0x7f08010a
@@ -3699,7 +3700,6 @@ int id tag_on_receive_content_listener 0x7f0a0202
 int id tag_on_receive_content_mime_types 0x7f0a0203
 int id tag_screen_reader_focusable 0x7f0a0204
 int id tag_state_description 0x7f0a0205
-int id tag_text 0x7f0a0206
 int id tag_transition_group 0x7f0a0207
 int id tag_unhandled_key_event_manager 0x7f0a0208
 int id tag_unhandled_key_listeners 0x7f0a0209

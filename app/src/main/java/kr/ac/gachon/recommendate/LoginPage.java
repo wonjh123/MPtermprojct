@@ -21,12 +21,18 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginPage extends AppCompatActivity {
 
@@ -77,7 +83,7 @@ public class LoginPage extends AppCompatActivity {
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*String emailText = email_EditText.getText().toString();
+                String emailText = email_EditText.getText().toString();
                 String pwText = pw_EditText.getText().toString();
 
                 if (emailText.isEmpty() || pwText.isEmpty()) {
@@ -85,11 +91,11 @@ public class LoginPage extends AppCompatActivity {
                     return;
                 }
 
-                signInWithEmailPassword(emailText, pwText);*/
+                signInWithEmailPassword(emailText, pwText);
 
-                Intent intent = new Intent(getApplicationContext(), NaviActivity.class);
+                /*Intent intent = new Intent(getApplicationContext(), NaviActivity.class);
                 startActivity(intent);
-                finish();
+                finish();*/
             }
         });
 

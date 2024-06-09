@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="@drawable/gradient_primary_dark"
+    android:background="@color/white"
     tools:context=".HomeFragment">
 
     <TextView
@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:paddingTop="5dp"
         android:text="RecommendDate"
         android:background="@color/white"
         android:fontFamily="@font/gmarketsans_ttf_light"
@@ -20,31 +21,69 @@
         android:textSize="36sp">
     </TextView>
 
-    <View
-        android:id="@+id/divider_title"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/Gray" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_primary_dark"
+        android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp">
-
-        <ImageView
-            android:id="@+id/img_map"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
+            android:layout_height="200dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
 
-        <Button
-            android:id="@+id/btn_open_map"
+            <ImageView
+                android:id="@+id/img_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <Button
+                android:id="@+id/btn_open_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent" />
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_open_recommend"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/transparent" />
-    </FrameLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="40dp"
+            android:background="@color/primaryColorDark"
+            android:text="오늘의 데이트 추천 받기"
+            android:textSize="18sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/text_last_dates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="10dp"
+            android:text="당신을 위한 추천"
+            android:fontFamily="@font/gmarketsans_ttf_medium"
+            android:background="@drawable/top_radius"
+            android:textSize="24sp">
+        </TextView>
+
+        <ListView
+            android:id="@+id/list_recommend_dates"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:background="@color/white"
+            android:divider="@color/white"
+            android:dividerHeight="10dp" />
+
+    </LinearLayout>
+
+
 
     <!--<ImageButton
         android:id="@+id/btn_open_map"
@@ -58,38 +97,9 @@
 
     <!--android:background="@drawable/button_stroke"-->
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_open_recommend"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="40dp"
-        android:background="@color/primaryColorDark"
-        android:text="Recommend"
-        android:textSize="18sp"
-        android:textColor="@color/black"/>
-
-    <TextView
-        android:id="@+id/text_last_dates"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingVertical="8dp"
-        android:text="당신을 위한 추천"
-        android:fontFamily="@font/gmarketsans_ttf_medium"
-        android:background="@drawable/top_radius"
-        android:textSize="24sp">
-    </TextView>
 
 
-    <ListView
-        android:id="@+id/list_recommend_dates"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingTop="5dp"
-        android:background="@color/white"
-        android:divider="@color/white"
-        android:dividerHeight="10dp" />
+
+
 
 </LinearLayout>

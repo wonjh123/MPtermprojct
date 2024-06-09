@@ -3,9 +3,11 @@ package kr.ac.gachon.recommendate;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ToggleButton;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 public class TagToggleAdapter extends RecyclerView.Adapter<TagToggleAdapter.TagViewHolder> {
@@ -28,23 +30,27 @@ public class TagToggleAdapter extends RecyclerView.Adapter<TagToggleAdapter.TagV
     @Override
     public void onBindViewHolder(@NonNull TagViewHolder holder, int position) {
         String tag = tagList.get(position);
-        holder.tagText.setText(tag);
+        holder.toggleButton.setText(tag);
+        holder.toggleButton.setTextOn(tag);
+        holder.toggleButton.setTextOff(tag);
 
         if (selectedTags.contains(tag)) {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(android.R.color.holo_blue_light));
+            holder.toggleButton.setChecked(true);
+//            holder.toggleButton.setBackgroundColor(holder.itemView.getResources().getColor(android.R.color.holo_blue_light));
         } else {
-            holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(android.R.color.transparent));
+            holder.toggleButton.setChecked(false);
+//            holder.toggleButton.setBackgroundColor(holder.itemView.getResources().getColor(android.R.color.transparent));
         }
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (selectedTags.contains(tag)) {
                     selectedTags.remove(tag);
-                    holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(android.R.color.transparent));
+//                    holder.toggleButton.setBackgroundColor(holder.itemView.getResources().getColor(android.R.color.transparent));
                 } else {
                     selectedTags.add(tag);
-                    holder.itemView.setBackgroundColor(holder.itemView.getResources().getColor(android.R.color.holo_blue_light));
+//                    holder.toggleButton.setBackgroundColor(holder.itemView.getResources().getColor(android.R.color.holo_blue_light));
                 }
             }
         });
@@ -56,11 +62,11 @@ public class TagToggleAdapter extends RecyclerView.Adapter<TagToggleAdapter.TagV
     }
 
     class TagViewHolder extends RecyclerView.ViewHolder {
-        TextView tagText;
+        ToggleButton toggleButton;
 
         TagViewHolder(@NonNull View itemView) {
             super(itemView);
-            tagText = itemView.findViewById(R.id.tag_text);
+            toggleButton = itemView.findViewById(R.id.toggleButton);
         }
     }
 }

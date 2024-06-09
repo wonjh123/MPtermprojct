@@ -39,6 +39,7 @@ drawable ic_launcher_foreground
 drawable ic_logo
 drawable location_searching_24px
 drawable menu_click_color
+drawable stroke_bottom_only
 drawable toggle_button
 drawable top_radius
 font custom_font_family
@@ -116,7 +117,6 @@ id set_view
 id sign_btn
 id sign_in_button
 id tagTextView
-id tag_text
 id tagsRecyclerView
 id text_header_title
 id text_last_dates

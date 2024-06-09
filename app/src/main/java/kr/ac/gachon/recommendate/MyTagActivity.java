@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -128,7 +129,7 @@ public class MyTagActivity extends AppCompatActivity {
         return activityTags;
     }
 
-    private class TagToggleAdapter extends RecyclerView.Adapter<TagToggleAdapter.TagViewHolder> {
+    private static class TagToggleAdapter extends RecyclerView.Adapter<TagToggleAdapter.TagViewHolder> {
 
         private List<String> tagList;
         private List<String> selectedTags;
@@ -148,23 +149,21 @@ public class MyTagActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull TagViewHolder holder, int position) {
             String tag = tagList.get(position);
-            holder.tagText.setText(tag);
+            holder.toggleButton.setText(tag);
+            holder.toggleButton.setTextOn(tag);
+            holder.toggleButton.setTextOff(tag);
 
-            if (selectedTags.contains(tag)) {
-                holder.itemView.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_light));
-            } else {
-                holder.itemView.setBackgroundColor(getResources().getColor(android.R.color.transparent));
-            }
+            holder.toggleButton.setChecked(selectedTags.contains(tag));
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
+            holder.toggleButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (selectedTags.contains(tag)) {
-                        selectedTags.remove(tag);
-                        holder.itemView.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    if (holder.toggleButton.isChecked()) {
+                        if (!selectedTags.contains(tag)) {
+                            selectedTags.add(tag);
+                        }
                     } else {
-                        selectedTags.add(tag);
-                        holder.itemView.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_light));
+                        selectedTags.remove(tag);
                     }
                 }
             });
@@ -176,11 +175,11 @@ public class MyTagActivity extends AppCompatActivity {
         }
 
         class TagViewHolder extends RecyclerView.ViewHolder {
-            TextView tagText;
+            ToggleButton toggleButton;
 
             TagViewHolder(@NonNull View itemView) {
                 super(itemView);
-                tagText = itemView.findViewById(R.id.tag_text);
+                toggleButton = itemView.findViewById(R.id.toggleButton);
             }
         }
     }

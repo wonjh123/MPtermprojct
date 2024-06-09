@@ -72,7 +72,7 @@
     <string name="google_storage_bucket" translatable="false">recommendate-d8f92.appspot.com</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="project_id" translatable="false">recommendate-d8f92</string>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryColorDark</item>
