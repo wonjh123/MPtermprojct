@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/date_item_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="10dp"
+    >
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_stroke" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/photo"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/photo"
+        android:text="Place name"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/name"
+        android:layout_toEndOf="@id/photo"
+        android:text="location" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tagsRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/location"
+        android:layout_toEndOf="@id/photo"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal" />
+
+</RelativeLayout>

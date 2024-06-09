@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="회원가입"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/enter_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_stroke_bgr_white"
+            android:hint="Email"
+            android:padding="5dp"
+            android:paddingVertical="10dp"
+            android:paddingStart="20dp" />
+
+        <EditText
+            android:id="@+id/enter_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_stroke_bgr_white"
+            android:hint="Name"
+            android:padding="5dp"
+            android:paddingVertical="10dp"
+            android:paddingStart="20dp" />
+
+        <EditText
+            android:id="@+id/enter_pw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_stroke_bgr_white"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="5dp"
+            android:paddingVertical="10dp"
+            android:paddingStart="20dp" />
+
+        <EditText
+            android:id="@+id/enter_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_stroke_bgr_white"
+            android:hint="Check PW"
+            android:inputType="textPassword"
+            android:padding="5dp"
+            android:paddingVertical="10dp"
+            android:paddingStart="20dp" />
+
+        <Button
+            android:id="@+id/register_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@android:color/transparent"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingHorizontal="20dp"
+            android:layout_gravity="center"
+            android:text="가입하기"
+            android:textSize="11sp"
+            android:textColor="@color/accentColor"/>
+    </LinearLayout>
+</LinearLayout>
