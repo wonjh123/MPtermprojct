@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/recommendate.iml" filepath="$PROJECT_DIR$/.idea/recommendate.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/recommendate.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/recommendate.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/recommendate.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/recommendate.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/recommendate.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/recommendate.app.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/recommendate.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/recommendate.app.unitTest.iml" />
