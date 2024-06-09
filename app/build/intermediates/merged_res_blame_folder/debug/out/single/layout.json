@@ -12,6 +12,10 @@
         "source": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/custom_listview.xml"
     },
     {
+        "merged": "kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/course_detail.xml",
+        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/course_detail.xml"
+    },
+    {
         "merged": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/tag_item.xml",
         "source": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/tag_item.xml"
     },
@@ -50,10 +54,6 @@
     {
         "merged": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/item_date.xml",
         "source": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/item_date.xml"
-    },
-    {
-        "merged": "kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/item_date.xml",
-        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/item_date.xml"
     },
     {
         "merged": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/item_tag.xml",

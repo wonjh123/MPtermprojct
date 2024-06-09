@@ -84,6 +84,10 @@
         "source": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/course_detail.xml"
     },
     {
+        "merged": "kr.ac.gachon.recommendate.app-merged_res-43:/layout_course_detail.xml.flat",
+        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/course_detail.xml"
+    },
+    {
         "merged": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/drawable_gradient_primary_dark.xml.flat",
         "source": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/drawable/gradient_primary_dark.xml"
     },
@@ -230,10 +234,6 @@
     {
         "merged": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/xml_backup_rules.xml.flat",
         "source": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/xml/backup_rules.xml"
-    },
-    {
-        "merged": "kr.ac.gachon.recommendate.app-merged_res-43:/layout_item_date.xml.flat",
-        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/item_date.xml"
     },
     {
         "merged": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/color_toggle_like_tint.xml.flat",

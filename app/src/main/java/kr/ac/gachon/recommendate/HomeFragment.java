@@ -4,22 +4,26 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.fragment.app.Fragment;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -29,11 +33,14 @@ import java.util.concurrent.Executors;
 
 public class HomeFragment extends Fragment {
 
+    private static final String TAG = "HomeFragment";
+
     private Button btnOpenMap;
     private ImageView imgMap; // ImageView for the map
     private Button btnOpenRecommend;
     private ListView listView;
     private ArrayList<RecommendDate> recommendDates;
+    private FirebaseFirestore db;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -43,6 +50,8 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+        db = FirebaseFirestore.getInstance();
 
         String mapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=37.7749,-122.4194&zoom=12&size=400x400&key=AIzaSyBjJwQBmFDQhdP-nmBmw2JXDvl91OQE4EA";
 
@@ -71,7 +80,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
         btnOpenMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,8 +102,7 @@ public class HomeFragment extends Fragment {
 
         listView = rootView.findViewById(R.id.list_recommend_dates);
 
-        recommendDates = DataProvider.getRecommendDates();
-
+        recommendDates = new ArrayList<>();
         RecommendDateAdapter adapter = new RecommendDateAdapter(getActivity(), recommendDates);
         listView.setAdapter(adapter);
 
@@ -104,29 +111,49 @@ public class HomeFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 RecommendDate selectedDate = recommendDates.get(position); // 클릭된 아이템 가져오기
                 Intent intent = new Intent(getActivity(), CourseDetail.class); // 다음 액티비티로 전환할 인텐트 생성
+                // 전달할 데이터 추가
+                intent.putExtra("courseId", selectedDate.getCourseId());
                 startActivity(intent); // 다음 액티비티로 전환
             }
         });
 
+        loadRecommendDates();
 
         return rootView;
     }
 
+    private void loadRecommendDates() {
+        db.collection("courses").get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+                    String courseId = document.getId();
+                    String name = document.getString("name");
+                    recommendDates.add(new RecommendDate(courseId, name));
+                    Log.d(TAG, "Course ID: " + courseId + ", Name: " + name);  // 로깅 추가
+                }
+                ((ArrayAdapter) listView.getAdapter()).notifyDataSetChanged();
+                Log.d(TAG, "Data loaded, total items: " + recommendDates.size());  // 로깅 추가
+            } else {
+                Log.w(TAG, "Error getting documents.", task.getException());
+            }
+        });
+    }
+
     public static class RecommendDate {
-        String leftText;
-        String rightText;
+        String courseId;
+        String name;
 
-        public RecommendDate(String leftText, String rightText) {
-            this.leftText = leftText;
-            this.rightText = rightText;
+        public RecommendDate(String courseId, String name) {
+            this.courseId = courseId;
+            this.name = name;
         }
 
-        public String getLeftText() {
-            return leftText;
+        public String getCourseId() {
+            return courseId;
         }
 
-        public String getRightText() {
-            return rightText;
+        public String getName() {
+            return name;
         }
     }
 
@@ -136,7 +163,7 @@ public class HomeFragment extends Fragment {
         private final List<RecommendDate> dates;
 
         public RecommendDateAdapter(Context context, List<RecommendDate> dates) {
-            super(context, R.layout.home_recommend_item, dates);
+            super(context, R.layout.custom_listview, dates);
             this.context = context;
             this.dates = dates;
         }
@@ -149,15 +176,13 @@ public class HomeFragment extends Fragment {
                 convertView = inflater.inflate(R.layout.custom_listview, parent, false);
             }
 
-            /*TextView leftTextView = convertView.findViewById(R.id.keyword);
-            TextView rightTextView = convertView.findViewById(R.id.right_text);
-
+            TextView nameTextView = convertView.findViewById(R.id.course_name);
             RecommendDate date = dates.get(position);
-            leftTextView.setText(date.getLeftText());
-            rightTextView.setText(date.getRightText());*/
+            nameTextView.setText(date.getName());
+
+            Log.d(TAG, "ListView item: " + date.getName());  // 로깅 추가
 
             return convertView;
         }
     }
-
 }

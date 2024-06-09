@@ -4,13 +4,11 @@ package kr.ac.gachon.recommendate.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import java.lang.NullPointerException;
@@ -23,34 +21,46 @@ public final class CourseDetailBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final RecyclerView dateItemRecyclerView;
+  public final TextView activityName;
 
   @NonNull
-  public final ImageView image;
+  public final TextView activityTags;
 
   @NonNull
-  public final ToggleButton likeBtn;
+  public final ImageButton btnArrowBack;
 
   @NonNull
-  public final TextView likeNum;
+  public final TextView cafeName;
 
   @NonNull
-  public final TextView showKeyword;
+  public final TextView cafeTags;
 
   @NonNull
-  public final TextView textContainer;
+  public final TextView courseName;
 
-  private CourseDetailBinding(@NonNull LinearLayout rootView,
-      @NonNull RecyclerView dateItemRecyclerView, @NonNull ImageView image,
-      @NonNull ToggleButton likeBtn, @NonNull TextView likeNum, @NonNull TextView showKeyword,
-      @NonNull TextView textContainer) {
+  @NonNull
+  public final TextView restaurantName;
+
+  @NonNull
+  public final TextView restaurantTags;
+
+  @NonNull
+  public final TextView textHeaderTitle;
+
+  private CourseDetailBinding(@NonNull LinearLayout rootView, @NonNull TextView activityName,
+      @NonNull TextView activityTags, @NonNull ImageButton btnArrowBack, @NonNull TextView cafeName,
+      @NonNull TextView cafeTags, @NonNull TextView courseName, @NonNull TextView restaurantName,
+      @NonNull TextView restaurantTags, @NonNull TextView textHeaderTitle) {
     this.rootView = rootView;
-    this.dateItemRecyclerView = dateItemRecyclerView;
-    this.image = image;
-    this.likeBtn = likeBtn;
-    this.likeNum = likeNum;
-    this.showKeyword = showKeyword;
-    this.textContainer = textContainer;
+    this.activityName = activityName;
+    this.activityTags = activityTags;
+    this.btnArrowBack = btnArrowBack;
+    this.cafeName = cafeName;
+    this.cafeTags = cafeTags;
+    this.courseName = courseName;
+    this.restaurantName = restaurantName;
+    this.restaurantTags = restaurantTags;
+    this.textHeaderTitle = textHeaderTitle;
   }
 
   @Override
@@ -80,44 +90,63 @@ public final class CourseDetailBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.date_item_recyclerView;
-      RecyclerView dateItemRecyclerView = ViewBindings.findChildViewById(rootView, id);
-      if (dateItemRecyclerView == null) {
+      id = R.id.activity_name;
+      TextView activityName = ViewBindings.findChildViewById(rootView, id);
+      if (activityName == null) {
         break missingId;
       }
 
-      id = R.id.image;
-      ImageView image = ViewBindings.findChildViewById(rootView, id);
-      if (image == null) {
+      id = R.id.activity_tags;
+      TextView activityTags = ViewBindings.findChildViewById(rootView, id);
+      if (activityTags == null) {
         break missingId;
       }
 
-      id = R.id.like_btn;
-      ToggleButton likeBtn = ViewBindings.findChildViewById(rootView, id);
-      if (likeBtn == null) {
+      id = R.id.btn_arrow_back;
+      ImageButton btnArrowBack = ViewBindings.findChildViewById(rootView, id);
+      if (btnArrowBack == null) {
         break missingId;
       }
 
-      id = R.id.like_num;
-      TextView likeNum = ViewBindings.findChildViewById(rootView, id);
-      if (likeNum == null) {
+      id = R.id.cafe_name;
+      TextView cafeName = ViewBindings.findChildViewById(rootView, id);
+      if (cafeName == null) {
         break missingId;
       }
 
-      id = R.id.show_keyword;
-      TextView showKeyword = ViewBindings.findChildViewById(rootView, id);
-      if (showKeyword == null) {
+      id = R.id.cafe_tags;
+      TextView cafeTags = ViewBindings.findChildViewById(rootView, id);
+      if (cafeTags == null) {
         break missingId;
       }
 
-      id = R.id.text_container;
-      TextView textContainer = ViewBindings.findChildViewById(rootView, id);
-      if (textContainer == null) {
+      id = R.id.course_name;
+      TextView courseName = ViewBindings.findChildViewById(rootView, id);
+      if (courseName == null) {
         break missingId;
       }
 
-      return new CourseDetailBinding((LinearLayout) rootView, dateItemRecyclerView, image, likeBtn,
-          likeNum, showKeyword, textContainer);
+      id = R.id.restaurant_name;
+      TextView restaurantName = ViewBindings.findChildViewById(rootView, id);
+      if (restaurantName == null) {
+        break missingId;
+      }
+
+      id = R.id.restaurant_tags;
+      TextView restaurantTags = ViewBindings.findChildViewById(rootView, id);
+      if (restaurantTags == null) {
+        break missingId;
+      }
+
+      id = R.id.text_header_title;
+      TextView textHeaderTitle = ViewBindings.findChildViewById(rootView, id);
+      if (textHeaderTitle == null) {
+        break missingId;
+      }
+
+      return new CourseDetailBinding((LinearLayout) rootView, activityName, activityTags,
+          btnArrowBack, cafeName, cafeTags, courseName, restaurantName, restaurantTags,
+          textHeaderTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
