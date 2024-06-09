@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -20,6 +21,9 @@ public final class ActivityMyTagBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final AppCompatButton btnTagsSave;
+
+  @NonNull
   public final RecyclerView recyclerView1;
 
   @NonNull
@@ -28,9 +32,11 @@ public final class ActivityMyTagBinding implements ViewBinding {
   @NonNull
   public final RecyclerView recyclerView3;
 
-  private ActivityMyTagBinding(@NonNull LinearLayout rootView, @NonNull RecyclerView recyclerView1,
-      @NonNull RecyclerView recyclerView2, @NonNull RecyclerView recyclerView3) {
+  private ActivityMyTagBinding(@NonNull LinearLayout rootView, @NonNull AppCompatButton btnTagsSave,
+      @NonNull RecyclerView recyclerView1, @NonNull RecyclerView recyclerView2,
+      @NonNull RecyclerView recyclerView3) {
     this.rootView = rootView;
+    this.btnTagsSave = btnTagsSave;
     this.recyclerView1 = recyclerView1;
     this.recyclerView2 = recyclerView2;
     this.recyclerView3 = recyclerView3;
@@ -63,6 +69,12 @@ public final class ActivityMyTagBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btn_tags_save;
+      AppCompatButton btnTagsSave = ViewBindings.findChildViewById(rootView, id);
+      if (btnTagsSave == null) {
+        break missingId;
+      }
+
       id = R.id.recyclerView1;
       RecyclerView recyclerView1 = ViewBindings.findChildViewById(rootView, id);
       if (recyclerView1 == null) {
@@ -81,8 +93,8 @@ public final class ActivityMyTagBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMyTagBinding((LinearLayout) rootView, recyclerView1, recyclerView2,
-          recyclerView3);
+      return new ActivityMyTagBinding((LinearLayout) rootView, btnTagsSave, recyclerView1,
+          recyclerView2, recyclerView3);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

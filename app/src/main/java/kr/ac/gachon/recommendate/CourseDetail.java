@@ -7,12 +7,20 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CourseDetail extends AppCompatActivity {
 
@@ -21,15 +29,17 @@ public class CourseDetail extends AppCompatActivity {
     private String keyword, like;
     private String[] DBKey, DBLike, DBtext, DBUser;
     private Button likeBtn;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.course_detail);
 
+        db = FirebaseFirestore.getInstance();
+
         TextView headerTitle = findViewById(R.id.text_header_title);
         headerTitle.setText("데이트");
-
 
         // 뒤로가기 버튼 설정
         ImageButton btnArrowBack = findViewById(R.id.btn_arrow_back);
@@ -65,24 +75,47 @@ public class CourseDetail extends AppCompatActivity {
         // DBUser = getResources().getStringArray(R.array.rank_test_user);
 
         for (int i = 0; i < DBKey.length; i++) {
-            if (DBKey[i] == keyword && DBLike[i] == like) {
+            if (DBKey[i].equals(keyword) && DBLike[i].equals(like)) {
                 textContainer.setText(DBtext[i]);
             }
         }
 
         RecyclerView recyclerView = findViewById(R.id.date_item_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        DateItemAdapter adapter = new DateItemAdapter(getDateItemFromDatabase());
-        recyclerView.setAdapter(adapter);
 
+        fetchDateItemsFromFirestore(new FirestoreCallback() {
+            @Override
+            public void onCallback(List<Map<String, Object>> dateItems) {
+                DateItemAdapter adapter = new DateItemAdapter(dateItems);
+                recyclerView.setAdapter(adapter);
+            }
+        });
     }
 
-    private List<String> getDateItemFromDatabase() {
-        List<String> date_items = new ArrayList<>();
-        date_items.add("Item 1");
-        date_items.add("Item 2");
-        date_items.add("Item 3");
-        // 필요에 따라 데이터를 추가합니다.
-        return date_items;
+    private void fetchDateItemsFromFirestore(final FirestoreCallback callback) {
+        db.collection("dateItems")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        List<Map<String, Object>> dateItems = new ArrayList<>();
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            Map<String, Object> data = document.getData();
+                            Map<String, Object> dateItem = new HashMap<>();
+                            dateItem.put("name", data.get("name"));
+                            dateItem.put("tags", data.get("tags"));
+                            GeoPoint location = (GeoPoint) data.get("location");
+                            if (location != null) {
+                                dateItem.put("latitude", location.getLatitude());
+                                dateItem.put("longitude", location.getLongitude());
+                            }
+                            dateItems.add(dateItem);
+                        }
+                        callback.onCallback(dateItems);
+                    }
+                });
+    }
+
+    private interface FirestoreCallback {
+        void onCallback(List<Map<String, Object>> dateItems);
     }
 }

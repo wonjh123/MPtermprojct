@@ -3298,6 +3298,7 @@ id btn_my_tags
 id btn_open_map
 id btn_open_recommend
 id btn_save_result
+id btn_tags_save
 id btn_toMyLocation
 id buttonPanel
 id cache_measures
@@ -3343,7 +3344,10 @@ id customPanel
 id cut
 id dark
 id date_item_list
+id date_item_location
+id date_item_name
 id date_item_recyclerView
+id date_item_tags
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -3692,6 +3696,7 @@ id tag_on_receive_content_listener
 id tag_on_receive_content_mime_types
 id tag_screen_reader_focusable
 id tag_state_description
+id tag_text
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
@@ -3909,6 +3914,7 @@ layout fragment_home
 layout fragment_my_page
 layout header_button_textview_layout
 layout home_recommend_item
+layout item_date
 layout item_tag
 layout last_dates_list_item
 layout login_page
@@ -3976,6 +3982,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout show_courselist
 layout support_simple_spinner_dropdown_item
+layout tag_item
 layout tag_toggle_item
 layout test
 menu navi_menu

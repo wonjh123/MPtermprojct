@@ -1,22 +1,45 @@
 package kr.ac.gachon.recommendate;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MyTagActivity extends AppCompatActivity {
 
+    private FirebaseFirestore db;
+    private FirebaseUser currentUser;
+
+    private List<String> selectedRestaurantTags = new ArrayList<>();
+    private List<String> selectedCafeTags = new ArrayList<>();
+    private List<String> selectedActivityTags = new ArrayList<>();
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_tag);
+
+        db = FirebaseFirestore.getInstance();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         TextView headerTitle = findViewById(R.id.text_header_title);
         headerTitle.setText("내 태그");
@@ -25,35 +48,57 @@ public class MyTagActivity extends AppCompatActivity {
         btnArrowBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // 현재 액티비티 종료, 이전 화면으로 돌아감
+                finish();
             }
         });
 
         List<String> restaurantTags = getRestaurantTags();
-
-        // 첫 번째 RecyclerView 설정
         RecyclerView restaurantRecyclerView = findViewById(R.id.recyclerView1);
         restaurantRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
-        TagToggleAdapter restaurantAdaptor = new TagToggleAdapter(restaurantTags);
-        restaurantRecyclerView.setAdapter(restaurantAdaptor);
-
+        TagToggleAdapter restaurantAdapter = new TagToggleAdapter(restaurantTags, selectedRestaurantTags);
+        restaurantRecyclerView.setAdapter(restaurantAdapter);
 
         List<String> cafeTags = getCafeTags();
-        // 두 번째 RecyclerView 설정
         RecyclerView cafeRecyclerView = findViewById(R.id.recyclerView2);
         cafeRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-
-        TagToggleAdapter cafeAdaptor = new TagToggleAdapter(cafeTags);
-        cafeRecyclerView.setAdapter(cafeAdaptor);
+        TagToggleAdapter cafeAdapter = new TagToggleAdapter(cafeTags, selectedCafeTags);
+        cafeRecyclerView.setAdapter(cafeAdapter);
 
         List<String> activityTags = getActivityTags();
-        // 세 번째 RecyclerView 설정
         RecyclerView activityRecyclerView = findViewById(R.id.recyclerView3);
         activityRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        TagToggleAdapter activityAdapter = new TagToggleAdapter(activityTags, selectedActivityTags);
+        activityRecyclerView.setAdapter(activityAdapter);
 
-        TagToggleAdapter activityAdaptor = new TagToggleAdapter(activityTags);
-        activityRecyclerView.setAdapter(activityAdaptor);
+        Button btnSaveMyTags = findViewById(R.id.btn_tags_save);
+        btnSaveMyTags.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveTagsToFirestore();
+                Intent intent = new Intent(MyTagActivity.this, NaviActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finishAffinity();
+            }
+        });
+    }
+
+    private void saveTagsToFirestore() {
+        if (currentUser != null) {
+            Map<String, Object> userTags = new HashMap<>();
+            userTags.put("restaurantTags", selectedRestaurantTags);
+            userTags.put("cafeTags", selectedCafeTags);
+            userTags.put("activityTags", selectedActivityTags);
+
+            db.collection("users").document(currentUser.getUid())
+                    .set(userTags, SetOptions.merge())
+                    .addOnSuccessListener(aVoid -> {
+                        // 태그 저장 성공 시 처리할 작업
+                    })
+                    .addOnFailureListener(e -> {
+                        // 태그 저장 실패 시 처리할 작업
+                    });
+        }
     }
 
     private List<String> getRestaurantTags() {
@@ -62,7 +107,6 @@ public class MyTagActivity extends AppCompatActivity {
         restaurantTags.add("중식");
         restaurantTags.add("일식");
         restaurantTags.add("양식");
-        // 필요에 따라 데이터를 추가합니다.
         return restaurantTags;
     }
 
@@ -71,19 +115,73 @@ public class MyTagActivity extends AppCompatActivity {
         cafeTags.add("베이커리");
         cafeTags.add("카공");
         cafeTags.add("대형 카페");
-        // 필요에 따라 데이터를 추가합니다.
         return cafeTags;
     }
 
     private List<String> getActivityTags() {
-        List<String> cafeTags = new ArrayList<>();
-        cafeTags.add("산책");
-        cafeTags.add("영화 / 공연 관람");
-        cafeTags.add("방탈출 카페");
-        cafeTags.add("보드게임 카페");
-        cafeTags.add("대형 카페");
-        // 필요에 따라 데이터를 추가합니다.
-        return cafeTags;
+        List<String> activityTags = new ArrayList<>();
+        activityTags.add("산책");
+        activityTags.add("영화 / 공연 관람");
+        activityTags.add("방탈출 카페");
+        activityTags.add("보드게임 카페");
+        activityTags.add("대형 카페");
+        return activityTags;
+    }
+
+    private class TagToggleAdapter extends RecyclerView.Adapter<TagToggleAdapter.TagViewHolder> {
+
+        private List<String> tagList;
+        private List<String> selectedTags;
+
+        TagToggleAdapter(List<String> tagList, List<String> selectedTags) {
+            this.tagList = tagList;
+            this.selectedTags = selectedTags;
+        }
+
+        @NonNull
+        @Override
+        public TagViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tag_item, parent, false);
+            return new TagViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull TagViewHolder holder, int position) {
+            String tag = tagList.get(position);
+            holder.tagText.setText(tag);
+
+            if (selectedTags.contains(tag)) {
+                holder.itemView.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_light));
+            } else {
+                holder.itemView.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+            }
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (selectedTags.contains(tag)) {
+                        selectedTags.remove(tag);
+                        holder.itemView.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+                    } else {
+                        selectedTags.add(tag);
+                        holder.itemView.setBackgroundColor(getResources().getColor(android.R.color.holo_blue_light));
+                    }
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return tagList.size();
+        }
+
+        class TagViewHolder extends RecyclerView.ViewHolder {
+            TextView tagText;
+
+            TagViewHolder(@NonNull View itemView) {
+                super(itemView);
+                tagText = itemView.findViewById(R.id.tag_text);
+            }
+        }
     }
 }
-
