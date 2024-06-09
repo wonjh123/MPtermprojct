@@ -48,34 +48,60 @@ public class TagActivity extends AppCompatActivity {
             }
         });
 
-        List<String> data1 = getDataFromDatabase();
-        List<String> data2 = getDataFromDatabase();
-        List<String> data3 = getDataFromDatabase();
+        List<String> restaurantTags = getRestaurantTags();
 
         // 첫 번째 RecyclerView 설정
-        RecyclerView recyclerView1 = findViewById(R.id.recyclerView1);
-        recyclerView1.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        TagToggleAdapter adapter1 = new TagToggleAdapter(data1);
-        recyclerView1.setAdapter(adapter1);
+        RecyclerView restaurantRecyclerView = findViewById(R.id.recyclerView1);
+        restaurantRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
+        TagToggleAdapter restaurantAdaptor = new TagToggleAdapter(restaurantTags);
+        restaurantRecyclerView.setAdapter(restaurantAdaptor);
+
+
+        List<String> cafeTags = getCafeTags();
         // 두 번째 RecyclerView 설정
-        RecyclerView recyclerView2 = findViewById(R.id.recyclerView2);
-        recyclerView2.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        TagToggleAdapter adapter2 = new TagToggleAdapter(data2);
-        recyclerView2.setAdapter(adapter2);
+        RecyclerView cafeRecyclerView = findViewById(R.id.recyclerView2);
+        cafeRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
+        TagToggleAdapter cafeAdaptor = new TagToggleAdapter(cafeTags);
+        cafeRecyclerView.setAdapter(cafeAdaptor);
+
+        List<String> activityTags = getActivityTags();
         // 세 번째 RecyclerView 설정
-        RecyclerView recyclerView3 = findViewById(R.id.recyclerView3);
-        recyclerView3.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        TagToggleAdapter adapter3 = new TagToggleAdapter(data3);
-        recyclerView3.setAdapter(adapter3);
+        RecyclerView activityRecyclerView = findViewById(R.id.recyclerView3);
+        activityRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+        TagToggleAdapter activityAdaptor = new TagToggleAdapter(activityTags);
+        activityRecyclerView.setAdapter(activityAdaptor);
     }
-    private List<String> getDataFromDatabase() {
-        List<String> data = new ArrayList<>();
-        data.add("Button 1");
-        data.add("Button 2");
-        data.add("Button 3");
+
+    private List<String> getRestaurantTags() {
+        List<String> restaurantTags = new ArrayList<>();
+        restaurantTags.add("한식");
+        restaurantTags.add("중식");
+        restaurantTags.add("일식");
+        restaurantTags.add("양식");
         // 필요에 따라 데이터를 추가합니다.
-        return data;
+        return restaurantTags;
+    }
+
+    private List<String> getCafeTags() {
+        List<String> cafeTags = new ArrayList<>();
+        cafeTags.add("베이커리");
+        cafeTags.add("카공");
+        cafeTags.add("대형 카페");
+        // 필요에 따라 데이터를 추가합니다.
+        return cafeTags;
+    }
+
+    private List<String> getActivityTags() {
+        List<String> cafeTags = new ArrayList<>();
+        cafeTags.add("산책");
+        cafeTags.add("영화 / 공연 관람");
+        cafeTags.add("방탈출 카페");
+        cafeTags.add("보드게임 카페");
+        cafeTags.add("대형 카페");
+        // 필요에 따라 데이터를 추가합니다.
+        return cafeTags;
     }
 }

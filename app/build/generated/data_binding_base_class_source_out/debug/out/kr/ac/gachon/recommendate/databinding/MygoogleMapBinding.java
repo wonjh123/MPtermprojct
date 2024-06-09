@@ -4,10 +4,10 @@ package kr.ac.gachon.recommendate.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import java.lang.NullPointerException;
@@ -20,13 +20,13 @@ public final class MygoogleMapBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final Button btnToMyLocation;
+  public final AppCompatButton btnToMyLocation;
 
   @NonNull
   public final RelativeLayout rootRelativeLayout;
 
-  private MygoogleMapBinding(@NonNull RelativeLayout rootView, @NonNull Button btnToMyLocation,
-      @NonNull RelativeLayout rootRelativeLayout) {
+  private MygoogleMapBinding(@NonNull RelativeLayout rootView,
+      @NonNull AppCompatButton btnToMyLocation, @NonNull RelativeLayout rootRelativeLayout) {
     this.rootView = rootView;
     this.btnToMyLocation = btnToMyLocation;
     this.rootRelativeLayout = rootRelativeLayout;
@@ -60,7 +60,7 @@ public final class MygoogleMapBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btn_toMyLocation;
-      Button btnToMyLocation = ViewBindings.findChildViewById(rootView, id);
+      AppCompatButton btnToMyLocation = ViewBindings.findChildViewById(rootView, id);
       if (btnToMyLocation == null) {
         break missingId;
       }

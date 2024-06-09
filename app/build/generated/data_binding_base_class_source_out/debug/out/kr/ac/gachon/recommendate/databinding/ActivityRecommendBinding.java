@@ -4,7 +4,7 @@ package kr.ac.gachon.recommendate.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
@@ -17,7 +17,7 @@ import kr.ac.gachon.recommendate.R;
 
 public final class ActivityRecommendBinding implements ViewBinding {
   @NonNull
-  private final RelativeLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
   public final AppCompatButton btnChooseLocation;
@@ -25,7 +25,7 @@ public final class ActivityRecommendBinding implements ViewBinding {
   @NonNull
   public final HeaderButtonTextviewLayoutBinding header;
 
-  private ActivityRecommendBinding(@NonNull RelativeLayout rootView,
+  private ActivityRecommendBinding(@NonNull LinearLayout rootView,
       @NonNull AppCompatButton btnChooseLocation,
       @NonNull HeaderButtonTextviewLayoutBinding header) {
     this.rootView = rootView;
@@ -35,7 +35,7 @@ public final class ActivityRecommendBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public RelativeLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -73,7 +73,7 @@ public final class ActivityRecommendBinding implements ViewBinding {
       }
       HeaderButtonTextviewLayoutBinding binding_header = HeaderButtonTextviewLayoutBinding.bind(header);
 
-      return new ActivityRecommendBinding((RelativeLayout) rootView, btnChooseLocation,
+      return new ActivityRecommendBinding((LinearLayout) rootView, btnChooseLocation,
           binding_header);
     }
     String missingId = rootView.getResources().getResourceName(id);

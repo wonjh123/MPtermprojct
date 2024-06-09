@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import java.lang.NullPointerException;
@@ -20,6 +21,9 @@ import kr.ac.gachon.recommendate.R;
 public final class CourseDetailBinding implements ViewBinding {
   @NonNull
   private final LinearLayout rootView;
+
+  @NonNull
+  public final RecyclerView dateItemRecyclerView;
 
   @NonNull
   public final ImageView image;
@@ -36,10 +40,12 @@ public final class CourseDetailBinding implements ViewBinding {
   @NonNull
   public final TextView textContainer;
 
-  private CourseDetailBinding(@NonNull LinearLayout rootView, @NonNull ImageView image,
+  private CourseDetailBinding(@NonNull LinearLayout rootView,
+      @NonNull RecyclerView dateItemRecyclerView, @NonNull ImageView image,
       @NonNull ToggleButton likeBtn, @NonNull TextView likeNum, @NonNull TextView showKeyword,
       @NonNull TextView textContainer) {
     this.rootView = rootView;
+    this.dateItemRecyclerView = dateItemRecyclerView;
     this.image = image;
     this.likeBtn = likeBtn;
     this.likeNum = likeNum;
@@ -74,6 +80,12 @@ public final class CourseDetailBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.date_item_recyclerView;
+      RecyclerView dateItemRecyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (dateItemRecyclerView == null) {
+        break missingId;
+      }
+
       id = R.id.image;
       ImageView image = ViewBindings.findChildViewById(rootView, id);
       if (image == null) {
@@ -104,8 +116,8 @@ public final class CourseDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      return new CourseDetailBinding((LinearLayout) rootView, image, likeBtn, likeNum, showKeyword,
-          textContainer);
+      return new CourseDetailBinding((LinearLayout) rootView, dateItemRecyclerView, image, likeBtn,
+          likeNum, showKeyword, textContainer);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

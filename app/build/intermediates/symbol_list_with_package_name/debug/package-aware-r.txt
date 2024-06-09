@@ -2147,6 +2147,7 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color toggle_like_tint
 color toggle_text_color
 color tooltip_background_dark
 color tooltip_background_light
@@ -3077,6 +3078,7 @@ drawable edit_border
 drawable favorite_24px
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable gradient_primary_dark
 drawable ic_arrow_back_black_24
 drawable ic_calendar_month
 drawable ic_clear_black_24
@@ -3098,6 +3100,7 @@ drawable ic_other_sign_in
 drawable ic_passkey
 drawable ic_password
 drawable ic_search_black_24
+drawable location_searching_24px
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3172,9 +3175,9 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable test_level_drawable
 drawable toggle_button
-drawable toggle_like_button
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable top_radius
 font custom_font_family
 font gmarketsans_ttf_bold
 font gmarketsans_ttf_light
@@ -3269,7 +3272,6 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
-id back_login_btn
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3437,6 +3439,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id img_map
 id immediateStop
 id included
 id indeterminate

@@ -4,7 +4,7 @@ package kr.ac.gachon.recommendate.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -19,7 +19,7 @@ import kr.ac.gachon.recommendate.R;
 
 public final class FragmentCalenderBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
   public final AppCompatButton otherBtn;
@@ -30,7 +30,7 @@ public final class FragmentCalenderBinding implements ViewBinding {
   @NonNull
   public final TextView textTop3;
 
-  private FragmentCalenderBinding(@NonNull FrameLayout rootView, @NonNull AppCompatButton otherBtn,
+  private FragmentCalenderBinding(@NonNull LinearLayout rootView, @NonNull AppCompatButton otherBtn,
       @NonNull ListView rankTop3, @NonNull TextView textTop3) {
     this.rootView = rootView;
     this.otherBtn = otherBtn;
@@ -40,7 +40,7 @@ public final class FragmentCalenderBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -83,7 +83,7 @@ public final class FragmentCalenderBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentCalenderBinding((FrameLayout) rootView, otherBtn, rankTop3, textTop3);
+      return new FragmentCalenderBinding((LinearLayout) rootView, otherBtn, rankTop3, textTop3);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -4,6 +4,8 @@ package kr.ac.gachon.recommendate.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,13 +24,16 @@ public final class FragmentHomeBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final AppCompatButton btnOpenMap;
+  public final Button btnOpenMap;
 
   @NonNull
   public final AppCompatButton btnOpenRecommend;
 
   @NonNull
   public final View dividerTitle;
+
+  @NonNull
+  public final ImageView imgMap;
 
   @NonNull
   public final ListView listRecommendDates;
@@ -39,14 +44,15 @@ public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
   public final TextView title;
 
-  private FragmentHomeBinding(@NonNull LinearLayout rootView, @NonNull AppCompatButton btnOpenMap,
+  private FragmentHomeBinding(@NonNull LinearLayout rootView, @NonNull Button btnOpenMap,
       @NonNull AppCompatButton btnOpenRecommend, @NonNull View dividerTitle,
-      @NonNull ListView listRecommendDates, @NonNull TextView textLastDates,
-      @NonNull TextView title) {
+      @NonNull ImageView imgMap, @NonNull ListView listRecommendDates,
+      @NonNull TextView textLastDates, @NonNull TextView title) {
     this.rootView = rootView;
     this.btnOpenMap = btnOpenMap;
     this.btnOpenRecommend = btnOpenRecommend;
     this.dividerTitle = dividerTitle;
+    this.imgMap = imgMap;
     this.listRecommendDates = listRecommendDates;
     this.textLastDates = textLastDates;
     this.title = title;
@@ -80,7 +86,7 @@ public final class FragmentHomeBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btn_open_map;
-      AppCompatButton btnOpenMap = ViewBindings.findChildViewById(rootView, id);
+      Button btnOpenMap = ViewBindings.findChildViewById(rootView, id);
       if (btnOpenMap == null) {
         break missingId;
       }
@@ -94,6 +100,12 @@ public final class FragmentHomeBinding implements ViewBinding {
       id = R.id.divider_title;
       View dividerTitle = ViewBindings.findChildViewById(rootView, id);
       if (dividerTitle == null) {
+        break missingId;
+      }
+
+      id = R.id.img_map;
+      ImageView imgMap = ViewBindings.findChildViewById(rootView, id);
+      if (imgMap == null) {
         break missingId;
       }
 
@@ -116,7 +128,7 @@ public final class FragmentHomeBinding implements ViewBinding {
       }
 
       return new FragmentHomeBinding((LinearLayout) rootView, btnOpenMap, btnOpenRecommend,
-          dividerTitle, listRecommendDates, textLastDates, title);
+          dividerTitle, imgMap, listRecommendDates, textLastDates, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

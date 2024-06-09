@@ -22,9 +22,6 @@ public final class FindPwBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final Button backLoginBtn;
-
-  @NonNull
   public final Button checkBtn;
 
   @NonNull
@@ -36,11 +33,9 @@ public final class FindPwBinding implements ViewBinding {
   @NonNull
   public final TextView setView;
 
-  private FindPwBinding(@NonNull LinearLayout rootView, @NonNull Button backLoginBtn,
-      @NonNull Button checkBtn, @NonNull EditText enterEmail, @NonNull EditText enterName,
-      @NonNull TextView setView) {
+  private FindPwBinding(@NonNull LinearLayout rootView, @NonNull Button checkBtn,
+      @NonNull EditText enterEmail, @NonNull EditText enterName, @NonNull TextView setView) {
     this.rootView = rootView;
-    this.backLoginBtn = backLoginBtn;
     this.checkBtn = checkBtn;
     this.enterEmail = enterEmail;
     this.enterName = enterName;
@@ -74,12 +69,6 @@ public final class FindPwBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.back_login_btn;
-      Button backLoginBtn = ViewBindings.findChildViewById(rootView, id);
-      if (backLoginBtn == null) {
-        break missingId;
-      }
-
       id = R.id.check_btn;
       Button checkBtn = ViewBindings.findChildViewById(rootView, id);
       if (checkBtn == null) {
@@ -104,8 +93,7 @@ public final class FindPwBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FindPwBinding((LinearLayout) rootView, backLoginBtn, checkBtn, enterEmail,
-          enterName, setView);
+      return new FindPwBinding((LinearLayout) rootView, checkBtn, enterEmail, enterName, setView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
