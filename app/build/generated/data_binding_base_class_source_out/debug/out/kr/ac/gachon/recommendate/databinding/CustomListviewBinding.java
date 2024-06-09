@@ -4,8 +4,7 @@ package kr.ac.gachon.recommendate.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,32 +17,19 @@ import kr.ac.gachon.recommendate.R;
 
 public final class CustomListviewBinding implements ViewBinding {
   @NonNull
-  private final RelativeLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
-  public final TextView keyword;
+  public final TextView courseName;
 
-  @NonNull
-  public final TextView like;
-
-  @NonNull
-  public final ImageView likeIcon;
-
-  @NonNull
-  public final ImageView photo;
-
-  private CustomListviewBinding(@NonNull RelativeLayout rootView, @NonNull TextView keyword,
-      @NonNull TextView like, @NonNull ImageView likeIcon, @NonNull ImageView photo) {
+  private CustomListviewBinding(@NonNull LinearLayout rootView, @NonNull TextView courseName) {
     this.rootView = rootView;
-    this.keyword = keyword;
-    this.like = like;
-    this.likeIcon = likeIcon;
-    this.photo = photo;
+    this.courseName = courseName;
   }
 
   @Override
   @NonNull
-  public RelativeLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -68,31 +54,13 @@ public final class CustomListviewBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.keyword;
-      TextView keyword = ViewBindings.findChildViewById(rootView, id);
-      if (keyword == null) {
+      id = R.id.course_name;
+      TextView courseName = ViewBindings.findChildViewById(rootView, id);
+      if (courseName == null) {
         break missingId;
       }
 
-      id = R.id.like;
-      TextView like = ViewBindings.findChildViewById(rootView, id);
-      if (like == null) {
-        break missingId;
-      }
-
-      id = R.id.like_icon;
-      ImageView likeIcon = ViewBindings.findChildViewById(rootView, id);
-      if (likeIcon == null) {
-        break missingId;
-      }
-
-      id = R.id.photo;
-      ImageView photo = ViewBindings.findChildViewById(rootView, id);
-      if (photo == null) {
-        break missingId;
-      }
-
-      return new CustomListviewBinding((RelativeLayout) rootView, keyword, like, likeIcon, photo);
+      return new CustomListviewBinding((LinearLayout) rootView, courseName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

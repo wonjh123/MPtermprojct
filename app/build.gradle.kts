@@ -65,4 +65,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-location:21.3.0")
 
     implementation("io.github.ParkSangGwon:tedpermission-normal:3.3.0")
+    implementation("com.google.firebase:firebase-firestore:24.0.0")
+    implementation("com.google.firebase:firebase-core:21.1.0")
+
 }

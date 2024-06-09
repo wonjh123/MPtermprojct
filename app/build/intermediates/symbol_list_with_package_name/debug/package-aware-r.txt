@@ -3253,6 +3253,8 @@ id action_mode_close_button
 id action_text
 id actions
 id activity_chooser_view_content
+id activity_name
+id activity_tags
 id add
 id adjust_height
 id adjust_width
@@ -3302,6 +3304,8 @@ id btn_tags_save
 id btn_toMyLocation
 id buttonPanel
 id cache_measures
+id cafe_name
+id cafe_tags
 id calenderFragment
 id callMeasure
 id cancel_button
@@ -3337,6 +3341,7 @@ id coordinator
 id cos
 id counterclockwise
 id course_listView
+id course_name
 id cradle
 id currentState
 id custom
@@ -3464,9 +3469,7 @@ id left_text
 id legacy
 id light
 id like
-id like_btn
 id like_icon
-id like_num
 id line1
 id line3
 id linear
@@ -3609,6 +3612,8 @@ id recyclerView2
 id recyclerView3
 id register_btn
 id report_drawn
+id restaurant_name
+id restaurant_tags
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3650,7 +3655,6 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
-id show_keyword
 id sign_btn
 id sign_in_button
 id sin
@@ -3710,7 +3714,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id text_container
 id text_header_title
 id text_input_end_icon
 id text_input_error_icon

@@ -77,30 +77,30 @@ public class TagActivity extends AppCompatActivity {
 
     private List<String> getRestaurantTags() {
         List<String> restaurantTags = new ArrayList<>();
-        restaurantTags.add("한식");
-        restaurantTags.add("중식");
-        restaurantTags.add("일식");
-        restaurantTags.add("양식");
+        restaurantTags.add("#한식");
+        restaurantTags.add("#중식");
+        restaurantTags.add("#일식");
+        restaurantTags.add("#양식");
         // 필요에 따라 데이터를 추가합니다.
         return restaurantTags;
     }
 
     private List<String> getCafeTags() {
         List<String> cafeTags = new ArrayList<>();
-        cafeTags.add("베이커리");
-        cafeTags.add("카공");
-        cafeTags.add("대형 카페");
+        cafeTags.add("#베이커리");
+        cafeTags.add("#카공");
+        cafeTags.add("#대형 카페");
         // 필요에 따라 데이터를 추가합니다.
         return cafeTags;
     }
 
     private List<String> getActivityTags() {
         List<String> activityTags = new ArrayList<>();
-        activityTags.add("산책");
-        activityTags.add("영화 / 공연 관람");
-        activityTags.add("방탈출 카페");
-        activityTags.add("보드게임 카페");
-        activityTags.add("대형 카페");
+        activityTags.add("#산책");
+        activityTags.add("#영화 / 공연 관람");
+        activityTags.add("#방탈출 카페");
+        activityTags.add("#보드게임 카페");
+        activityTags.add("#대형 카페");
         // 필요에 따라 데이터를 추가합니다.
         return activityTags;
     }
