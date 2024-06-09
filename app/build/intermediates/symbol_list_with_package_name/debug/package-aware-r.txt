@@ -3298,6 +3298,7 @@ id btn_my_tags
 id btn_open_map
 id btn_open_recommend
 id btn_save_result
+id btn_tags_save
 id btn_toMyLocation
 id buttonPanel
 id cache_measures

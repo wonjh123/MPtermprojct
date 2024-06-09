@@ -33,4 +33,14 @@
         android:padding="10dp"
         android:scrollbars="horizontal" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_tags_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="16dp"
+        android:background="@drawable/button_border_round_primary"
+        android:text="저장하기"
+        android:textSize="16sp" />
+
 </LinearLayout>

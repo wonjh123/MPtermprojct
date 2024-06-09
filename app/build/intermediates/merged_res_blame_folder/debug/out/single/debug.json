@@ -24,6 +24,10 @@
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/show_courselist.xml"
     },
     {
+        "merged": "kr.ac.gachon.recommendate.app-merged_res-43:/layout_activity_my_tag.xml.flat",
+        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/activity_my_tag.xml"
+    },
+    {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/drawable_ic_emoticon.xml.flat",
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/drawable/ic_emoticon.xml"
     },
@@ -136,10 +140,6 @@
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "kr.ac.gachon.recommendate.app-merged_res-43:/layout_fragment_calender.xml.flat",
-        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/fragment_calender.xml"
-    },
-    {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/layout_tag_toggle_item.xml.flat",
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/tag_toggle_item.xml"
     },
@@ -176,16 +176,16 @@
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/drawable/arrow_back_ios_24px.xml"
     },
     {
+        "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/layout_fragment_calender.xml.flat",
+        "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/fragment_calender.xml"
+    },
+    {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/mipmap-hdpi_ic_launcher.webp.flat",
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/mipmap-hdpi/ic_launcher.webp"
     },
     {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/layout_activity_main.xml.flat",
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/activity_main.xml"
-    },
-    {
-        "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/layout_fragment_calender.xml.flat",
-        "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/fragment_calender.xml"
     },
     {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/color_toggle_text_color.xml.flat",
@@ -246,10 +246,6 @@
     {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/layout_home_recommend_item.xml.flat",
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/home_recommend_item.xml"
-    },
-    {
-        "merged": "kr.ac.gachon.recommendate.app-merged_res-43:/layout_activity_tag.xml.flat",
-        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/activity_tag.xml"
     },
     {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/drawable_toggle_button.xml.flat",

@@ -1,7 +1,9 @@
 package kr.ac.gachon.recommendate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -54,6 +56,17 @@ public class MyTagActivity extends AppCompatActivity {
 
         TagToggleAdapter activityAdaptor = new TagToggleAdapter(activityTags);
         activityRecyclerView.setAdapter(activityAdaptor);
+
+        Button btnSaveMyTags = findViewById(R.id.btn_tags_save);
+        btnSaveMyTags.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyTagActivity.this, NaviActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finishAffinity();
+            }
+        });
     }
 
     private List<String> getRestaurantTags() {

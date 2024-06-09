@@ -3297,6 +3297,7 @@ int id btn_my_tags 0x7f0a0070
 int id btn_open_map 0x7f0a0071
 int id btn_open_recommend 0x7f0a0072
 int id btn_save_result 0x7f0a0073
+int id btn_tags_save 0x7f0a0242
 int id btn_toMyLocation 0x7f0a0074
 int id buttonPanel 0x7f0a0075
 int id cache_measures 0x7f0a0076

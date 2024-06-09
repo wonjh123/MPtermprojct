@@ -8,10 +8,6 @@
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/register_popup.xml"
     },
     {
-        "merged": "kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/fragment_calender.xml",
-        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/fragment_calender.xml"
-    },
-    {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/course_detail.xml",
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/course_detail.xml"
     },
@@ -34,10 +30,6 @@
     {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/custom_listview.xml",
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/custom_listview.xml"
-    },
-    {
-        "merged": "kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/activity_tag.xml",
-        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/activity_tag.xml"
     },
     {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/fragment_my_page.xml",
@@ -64,12 +56,16 @@
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/show_courselist.xml"
     },
     {
-        "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/date_item_list.xml",
-        "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/date_item_list.xml"
+        "merged": "kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/activity_my_tag.xml",
+        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/activity_my_tag.xml"
     },
     {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/activity_my_tag.xml",
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/activity_my_tag.xml"
+    },
+    {
+        "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/date_item_list.xml",
+        "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/date_item_list.xml"
     },
     {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/find_pw.xml",
