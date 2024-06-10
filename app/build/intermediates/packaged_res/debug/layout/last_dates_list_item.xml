@@ -19,10 +19,11 @@
         android:layout_alignTop="@id/photo"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/photo"
+        android:fontFamily="@font/gmarketsans_ttf_medium"
         android:text="keyword"
         android:textSize="18sp" />
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/like_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +40,7 @@
         android:layout_alignBottom="@id/like_icon"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@id/like_icon"
-        android:text="like num" />
+        android:text="like num" />-->
 
 </RelativeLayout>
 

@@ -24,20 +24,12 @@ public final class LastDatesListItemBinding implements ViewBinding {
   public final TextView keyword;
 
   @NonNull
-  public final TextView like;
-
-  @NonNull
-  public final ImageView likeIcon;
-
-  @NonNull
   public final ImageView photo;
 
   private LastDatesListItemBinding(@NonNull RelativeLayout rootView, @NonNull TextView keyword,
-      @NonNull TextView like, @NonNull ImageView likeIcon, @NonNull ImageView photo) {
+      @NonNull ImageView photo) {
     this.rootView = rootView;
     this.keyword = keyword;
-    this.like = like;
-    this.likeIcon = likeIcon;
     this.photo = photo;
   }
 
@@ -74,26 +66,13 @@ public final class LastDatesListItemBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.like;
-      TextView like = ViewBindings.findChildViewById(rootView, id);
-      if (like == null) {
-        break missingId;
-      }
-
-      id = R.id.like_icon;
-      ImageView likeIcon = ViewBindings.findChildViewById(rootView, id);
-      if (likeIcon == null) {
-        break missingId;
-      }
-
       id = R.id.photo;
       ImageView photo = ViewBindings.findChildViewById(rootView, id);
       if (photo == null) {
         break missingId;
       }
 
-      return new LastDatesListItemBinding((RelativeLayout) rootView, keyword, like, likeIcon,
-          photo);
+      return new LastDatesListItemBinding((RelativeLayout) rootView, keyword, photo);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -54,6 +54,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="40dp"
             android:background="@color/primaryColorDark"
+            android:fontFamily="@font/gmarketsans_ttf_medium"
             android:text="오늘의 데이트 추천 받기"
             android:textSize="18sp"
             android:textColor="@color/black"/>

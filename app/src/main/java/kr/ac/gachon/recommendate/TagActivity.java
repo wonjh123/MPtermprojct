@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -201,7 +202,9 @@ public class TagActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull TagViewHolder holder, int position) {
             String tag = tagList.get(position);
-            holder.tagText.setText(tag);
+            holder.toggleButton.setText(tag);
+            holder.toggleButton.setTextOn(tag);
+            holder.toggleButton.setTextOff(tag);
             holder.itemView.setSelected(selectedTags.contains(tag));
 
             holder.itemView.setOnClickListener(v -> {
@@ -221,11 +224,11 @@ public class TagActivity extends AppCompatActivity {
         }
 
         class TagViewHolder extends RecyclerView.ViewHolder {
-            TextView tagText;
+            ToggleButton toggleButton;
 
             TagViewHolder(@NonNull View itemView) {
                 super(itemView);
-                tagText = itemView.findViewById(R.id.tag_text);
+                toggleButton = itemView.findViewById(R.id.toggleButton);
             }
         }
     }

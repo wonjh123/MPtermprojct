@@ -3,7 +3,6 @@ package kr.ac.gachon.recommendate;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -23,6 +22,7 @@ public class CourseDetail extends AppCompatActivity {
     private String courseName;
     private TextView courseNameText, restaurantNameText, cafeNameText, activityNameText;
     private TextView restaurantTagsText, cafeTagsText, activityTagsText;
+    private TextView headerTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,6 @@ public class CourseDetail extends AppCompatActivity {
         setContentView(R.layout.course_detail);
 
         db = FirebaseFirestore.getInstance();
-
-        TextView headerTitle = findViewById(R.id.text_header_title);
-        headerTitle.setText("데이트");
 
         // 뒤로가기 버튼 설정
         ImageButton btnArrowBack = findViewById(R.id.btn_arrow_back);
@@ -66,6 +63,7 @@ public class CourseDetail extends AppCompatActivity {
                         Map<String, Object> data = document.getData();
 
                         String courseName = (String) data.get("name");
+
                         Map<String, Object> restaurant = (Map<String, Object>) data.get("restaurant");
                         Map<String, Object> cafe = (Map<String, Object>) data.get("cafe");
                         Map<String, Object> activity = (Map<String, Object>) data.get("activity");
@@ -73,10 +71,10 @@ public class CourseDetail extends AppCompatActivity {
                         courseNameText.setText(courseName);
 
                         if (restaurant != null) {
-                            restaurantNameText.setText("Restaurant: " + restaurant.get("name"));
+                            restaurantNameText.setText((String)restaurant.get("name"));
                             List<String> restaurantTags = (List<String>) restaurant.get("tags");
                             if (restaurantTags != null) {
-                                restaurantTagsText.setText("Tags: " + String.join(", ", restaurantTags));
+                                restaurantTagsText.setText(String.join(", ", restaurantTags));
                             } else {
                                 restaurantTagsText.setText("Tags: N/A");
                             }
@@ -86,10 +84,10 @@ public class CourseDetail extends AppCompatActivity {
                         }
 
                         if (cafe != null) {
-                            cafeNameText.setText("Cafe: " + cafe.get("name"));
+                            cafeNameText.setText((String)cafe.get("name"));
                             List<String> cafeTags = (List<String>) cafe.get("tags");
                             if (cafeTags != null) {
-                                cafeTagsText.setText("Tags: " + String.join(", ", cafeTags));
+                                cafeTagsText.setText(String.join(", ", cafeTags));
                             } else {
                                 cafeTagsText.setText("Tags: N/A");
                             }
@@ -99,10 +97,10 @@ public class CourseDetail extends AppCompatActivity {
                         }
 
                         if (activity != null) {
-                            activityNameText.setText("Activity: " + activity.get("name"));
+                            activityNameText.setText((String)activity.get("name"));
                             List<String> activityTags = (List<String>) activity.get("tags");
                             if (activityTags != null) {
-                                activityTagsText.setText("Tags: " + String.join(", ", activityTags));
+                                activityTagsText.setText(String.join(", ", activityTags));
                             } else {
                                 activityTagsText.setText("Tags: N/A");
                             }

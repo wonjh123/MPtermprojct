@@ -4,7 +4,6 @@ package kr.ac.gachon.recommendate.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -27,9 +26,6 @@ public final class CourseDetailBinding implements ViewBinding {
   public final TextView activityTags;
 
   @NonNull
-  public final ImageButton btnArrowBack;
-
-  @NonNull
   public final TextView cafeName;
 
   @NonNull
@@ -39,28 +35,27 @@ public final class CourseDetailBinding implements ViewBinding {
   public final TextView courseName;
 
   @NonNull
+  public final HeaderButtonTextviewLayoutBinding header;
+
+  @NonNull
   public final TextView restaurantName;
 
   @NonNull
   public final TextView restaurantTags;
 
-  @NonNull
-  public final TextView textHeaderTitle;
-
   private CourseDetailBinding(@NonNull LinearLayout rootView, @NonNull TextView activityName,
-      @NonNull TextView activityTags, @NonNull ImageButton btnArrowBack, @NonNull TextView cafeName,
-      @NonNull TextView cafeTags, @NonNull TextView courseName, @NonNull TextView restaurantName,
-      @NonNull TextView restaurantTags, @NonNull TextView textHeaderTitle) {
+      @NonNull TextView activityTags, @NonNull TextView cafeName, @NonNull TextView cafeTags,
+      @NonNull TextView courseName, @NonNull HeaderButtonTextviewLayoutBinding header,
+      @NonNull TextView restaurantName, @NonNull TextView restaurantTags) {
     this.rootView = rootView;
     this.activityName = activityName;
     this.activityTags = activityTags;
-    this.btnArrowBack = btnArrowBack;
     this.cafeName = cafeName;
     this.cafeTags = cafeTags;
     this.courseName = courseName;
+    this.header = header;
     this.restaurantName = restaurantName;
     this.restaurantTags = restaurantTags;
-    this.textHeaderTitle = textHeaderTitle;
   }
 
   @Override
@@ -102,12 +97,6 @@ public final class CourseDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btn_arrow_back;
-      ImageButton btnArrowBack = ViewBindings.findChildViewById(rootView, id);
-      if (btnArrowBack == null) {
-        break missingId;
-      }
-
       id = R.id.cafe_name;
       TextView cafeName = ViewBindings.findChildViewById(rootView, id);
       if (cafeName == null) {
@@ -126,6 +115,13 @@ public final class CourseDetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.header;
+      View header = ViewBindings.findChildViewById(rootView, id);
+      if (header == null) {
+        break missingId;
+      }
+      HeaderButtonTextviewLayoutBinding binding_header = HeaderButtonTextviewLayoutBinding.bind(header);
+
       id = R.id.restaurant_name;
       TextView restaurantName = ViewBindings.findChildViewById(rootView, id);
       if (restaurantName == null) {
@@ -138,15 +134,8 @@ public final class CourseDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.text_header_title;
-      TextView textHeaderTitle = ViewBindings.findChildViewById(rootView, id);
-      if (textHeaderTitle == null) {
-        break missingId;
-      }
-
-      return new CourseDetailBinding((LinearLayout) rootView, activityName, activityTags,
-          btnArrowBack, cafeName, cafeTags, courseName, restaurantName, restaurantTags,
-          textHeaderTitle);
+      return new CourseDetailBinding((LinearLayout) rootView, activityName, activityTags, cafeName,
+          cafeTags, courseName, binding_header, restaurantName, restaurantTags);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
