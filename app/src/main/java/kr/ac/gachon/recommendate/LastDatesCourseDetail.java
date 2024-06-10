@@ -78,10 +78,10 @@ public class LastDatesCourseDetail extends AppCompatActivity {
                             courseNameText.setText(courseName);
 
                             if (restaurant != null) {
-                                restaurantNameText.setText("Restaurant: " + restaurant.get("name"));
+                                restaurantNameText.setText((String)restaurant.get("name"));
                                 List<String> restaurantTags = (List<String>) restaurant.get("tags");
                                 if (restaurantTags != null) {
-                                    restaurantTagsText.setText("Tags: " + String.join(", ", restaurantTags));
+                                    restaurantTagsText.setText(String.join(", ", restaurantTags));
                                 } else {
                                     restaurantTagsText.setText("Tags: N/A");
                                 }
@@ -91,10 +91,10 @@ public class LastDatesCourseDetail extends AppCompatActivity {
                             }
 
                             if (cafe != null) {
-                                cafeNameText.setText("Cafe: " + cafe.get("name"));
+                                cafeNameText.setText((String)cafe.get("name"));
                                 List<String> cafeTags = (List<String>) cafe.get("tags");
                                 if (cafeTags != null) {
-                                    cafeTagsText.setText("Tags: " + String.join(", ", cafeTags));
+                                    cafeTagsText.setText(String.join(", ", cafeTags));
                                 } else {
                                     cafeTagsText.setText("Tags: N/A");
                                 }
@@ -104,10 +104,10 @@ public class LastDatesCourseDetail extends AppCompatActivity {
                             }
 
                             if (activity != null) {
-                                activityNameText.setText("Activity: " + activity.get("name"));
+                                activityNameText.setText((String)activity.get("name"));
                                 List<String> activityTags = (List<String>) activity.get("tags");
                                 if (activityTags != null) {
-                                    activityTagsText.setText("Tags: " + String.join(", ", activityTags));
+                                    activityTagsText.setText(String.join(", ", activityTags));
                                 } else {
                                     activityTagsText.setText("Tags: N/A");
                                 }

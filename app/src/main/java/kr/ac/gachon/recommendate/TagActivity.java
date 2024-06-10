@@ -65,8 +65,6 @@ public class TagActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-
-
     private List<String> getRestaurantTags() {
         List<String> restaurantTags = new ArrayList<>();
         restaurantTags.add("#한식");
@@ -109,6 +107,7 @@ public class TagActivity extends AppCompatActivity {
                         restaurantResults.add(data);
                     }
                 }
+                Log.d("TagActivity", "Restaurant results: " + restaurantResults);
 
                 // Fetch cafes
                 db.collection("cafes").get().addOnCompleteListener(task2 -> {
@@ -120,6 +119,7 @@ public class TagActivity extends AppCompatActivity {
                                 cafeResults.add(data);
                             }
                         }
+                        Log.d("TagActivity", "Cafe results: " + cafeResults);
 
                         // Fetch activities
                         db.collection("activity").get().addOnCompleteListener(task3 -> {
@@ -131,6 +131,7 @@ public class TagActivity extends AppCompatActivity {
                                         activityResults.add(data);
                                     }
                                 }
+                                Log.d("TagActivity", "Activity results: " + activityResults);
 
                                 // Get random recommendation from each category
                                 Map<String, Object> recommendedRestaurant = getRandomItem(restaurantResults);
@@ -144,15 +145,15 @@ public class TagActivity extends AppCompatActivity {
                                 putRecommendationIntoIntent(intent, "recommendedActivity", recommendedActivity);
                                 startActivity(intent);
                             } else {
-                                Log.e("TagActivity", "Error getting documents: ", task3.getException());
+                                Log.e("TagActivity", "Error getting activity documents: ", task3.getException());
                             }
                         });
                     } else {
-                        Log.e("TagActivity", "Error getting documents: ", task2.getException());
+                        Log.e("TagActivity", "Error getting cafe documents: ", task2.getException());
                     }
                 });
             } else {
-                Log.e("TagActivity", "Error getting documents: ", task.getException());
+                Log.e("TagActivity", "Error getting restaurant documents: ", task.getException());
             }
         });
     }
@@ -177,8 +178,10 @@ public class TagActivity extends AppCompatActivity {
             intent.putExtra(key + "Name", (String) recommendation.get("name"));
             intent.putStringArrayListExtra(key + "Tags", (ArrayList<String>) recommendation.get("tags"));
             GeoPoint location = (GeoPoint) recommendation.get("location");
-            intent.putExtra(key + "Latitude", location.getLatitude());
-            intent.putExtra(key + "Longitude", location.getLongitude());
+            if (location != null) {
+                intent.putExtra(key + "Latitude", location.getLatitude());
+                intent.putExtra(key + "Longitude", location.getLongitude());
+            }
         }
     }
 
@@ -205,16 +208,15 @@ public class TagActivity extends AppCompatActivity {
             holder.toggleButton.setText(tag);
             holder.toggleButton.setTextOn(tag);
             holder.toggleButton.setTextOff(tag);
-            holder.itemView.setSelected(selectedTags.contains(tag));
+            holder.toggleButton.setChecked(selectedTags.contains(tag));
 
-            holder.itemView.setOnClickListener(v -> {
+            holder.toggleButton.setOnClickListener(v -> {
                 if (selectedTags.contains(tag)) {
                     selectedTags.remove(tag);
-                    holder.itemView.setSelected(false);
                 } else {
                     selectedTags.add(tag);
-                    holder.itemView.setSelected(true);
                 }
+                holder.toggleButton.setChecked(selectedTags.contains(tag));
             });
         }
 

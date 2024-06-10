@@ -1,15 +1,15 @@
 [
     {
-        "merged": "kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/course_detail.xml",
-        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/course_detail.xml"
+        "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/item_date.xml",
+        "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/item_date.xml"
     },
     {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/home_recommend_item.xml",
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/home_recommend_item.xml"
     },
     {
-        "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/item_date.xml",
-        "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/item_date.xml"
+        "merged": "kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/fragment_home.xml",
+        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/fragment_home.xml"
     },
     {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/register_popup.xml",
@@ -20,12 +20,12 @@
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/course_detail.xml"
     },
     {
-        "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/activity_result.xml",
-        "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/activity_result.xml"
-    },
-    {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/header_button_textview_layout.xml",
         "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/header_button_textview_layout.xml"
+    },
+    {
+        "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/activity_result.xml",
+        "source": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/activity_result.xml"
     },
     {
         "merged": "/Users/hyunjoonkang/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-mergeDebugResources-42:/layout/item_tag.xml",

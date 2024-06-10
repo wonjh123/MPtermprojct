@@ -165,6 +165,10 @@ public class ResultActivity extends AppCompatActivity {
                     .addOnSuccessListener(documentReference -> {
                         // 저장 성공 시 처리할 작업
                         Toast.makeText(ResultActivity.this, "결과가 저장되었습니다.", Toast.LENGTH_SHORT).show();
+                        Intent naviIntent = new Intent(ResultActivity.this, NaviActivity.class);
+                        naviIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(naviIntent);
+                        finish(); // 현재 액티비티 종료
                     })
                     .addOnFailureListener(e -> {
                         // 저장 실패 시 처리할 작업
