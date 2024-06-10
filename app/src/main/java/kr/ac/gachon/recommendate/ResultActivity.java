@@ -7,12 +7,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +26,7 @@ import java.util.Map;
 public class ResultActivity extends AppCompatActivity {
 
     private FirebaseFirestore db;
+    private FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,33 +34,24 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         db = FirebaseFirestore.getInstance();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         TextView headerTitle = findViewById(R.id.text_header_title);
         headerTitle.setText("오늘의 데이트");
 
         // 뒤로가기 버튼 설정
         ImageButton btnArrowBack = findViewById(R.id.btn_arrow_back);
-        btnArrowBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish(); // 현재 액티비티 종료, 이전 화면으로 돌아감
-            }
-        });
+        btnArrowBack.setOnClickListener(v -> finish()); // 현재 액티비티 종료, 이전 화면으로 돌아감
 
         Button btnSaveResult = findViewById(R.id.btn_save_result);
         EditText editTextName = findViewById(R.id.edit_text_name);
 
-        btnSaveResult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = editTextName.getText().toString();
-                if (!name.isEmpty()) {
-                    saveResult(name);
-                }
-                Intent intent = new Intent(ResultActivity.this, NaviActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                finishAffinity();
+        btnSaveResult.setOnClickListener(v -> {
+            String name = editTextName.getText().toString();
+            if (!name.isEmpty()) {
+                saveResult(name);
+            } else {
+                Toast.makeText(ResultActivity.this, "이름을 입력해주세요.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -72,55 +68,45 @@ public class ResultActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        HashMap<String, Object> recommendedRestaurant = (HashMap<String, Object>) intent.getSerializableExtra("recommendedRestaurant");
-        HashMap<String, Object> recommendedCafe = (HashMap<String, Object>) intent.getSerializableExtra("recommendedCafe");
-        HashMap<String, Object> recommendedActivity = (HashMap<String, Object>) intent.getSerializableExtra("recommendedActivity");
+        String recommendedRestaurantName = intent.getStringExtra("recommendedRestaurantName");
+        ArrayList<String> recommendedRestaurantTags = intent.getStringArrayListExtra("recommendedRestaurantTags");
+        double recommendedRestaurantLatitude = intent.getDoubleExtra("recommendedRestaurantLatitude", 0);
+        double recommendedRestaurantLongitude = intent.getDoubleExtra("recommendedRestaurantLongitude", 0);
 
-        if (recommendedRestaurant != null) {
+        if (recommendedRestaurantName != null) {
             Map<String, Object> restaurantItem = new HashMap<>();
-            restaurantItem.put("name", recommendedRestaurant.get("name"));
-            restaurantItem.put("tags", recommendedRestaurant.get("tags").toString());
-            restaurantItem.put("latitude", recommendedRestaurant.get("latitude"));
-            restaurantItem.put("longitude", recommendedRestaurant.get("longitude"));
-            dateItems.add(restaurantItem);
-        } else {
-            Map<String, Object> restaurantItem = new HashMap<>();
-            restaurantItem.put("name", "Recommended Restaurant: No recommendation found");
-            restaurantItem.put("tags", "");
-            restaurantItem.put("latitude", "");
-            restaurantItem.put("longitude", "");
+            restaurantItem.put("name", recommendedRestaurantName);
+            restaurantItem.put("tags", recommendedRestaurantTags);
+            restaurantItem.put("latitude", recommendedRestaurantLatitude);
+            restaurantItem.put("longitude", recommendedRestaurantLongitude);
             dateItems.add(restaurantItem);
         }
 
-        if (recommendedCafe != null) {
+        String recommendedCafeName = intent.getStringExtra("recommendedCafeName");
+        ArrayList<String> recommendedCafeTags = intent.getStringArrayListExtra("recommendedCafeTags");
+        double recommendedCafeLatitude = intent.getDoubleExtra("recommendedCafeLatitude", 0);
+        double recommendedCafeLongitude = intent.getDoubleExtra("recommendedCafeLongitude", 0);
+
+        if (recommendedCafeName != null) {
             Map<String, Object> cafeItem = new HashMap<>();
-            cafeItem.put("name", recommendedCafe.get("name"));
-            cafeItem.put("tags", recommendedCafe.get("tags").toString());
-            cafeItem.put("latitude", recommendedCafe.get("latitude"));
-            cafeItem.put("longitude", recommendedCafe.get("longitude"));
-            dateItems.add(cafeItem);
-        } else {
-            Map<String, Object> cafeItem = new HashMap<>();
-            cafeItem.put("name", "Recommended Cafe: No recommendation found");
-            cafeItem.put("tags", "");
-            cafeItem.put("latitude", "");
-            cafeItem.put("longitude", "");
+            cafeItem.put("name", recommendedCafeName);
+            cafeItem.put("tags", recommendedCafeTags);
+            cafeItem.put("latitude", recommendedCafeLatitude);
+            cafeItem.put("longitude", recommendedCafeLongitude);
             dateItems.add(cafeItem);
         }
 
-        if (recommendedActivity != null) {
+        String recommendedActivityName = intent.getStringExtra("recommendedActivityName");
+        ArrayList<String> recommendedActivityTags = intent.getStringArrayListExtra("recommendedActivityTags");
+        double recommendedActivityLatitude = intent.getDoubleExtra("recommendedActivityLatitude", 0);
+        double recommendedActivityLongitude = intent.getDoubleExtra("recommendedActivityLongitude", 0);
+
+        if (recommendedActivityName != null) {
             Map<String, Object> activityItem = new HashMap<>();
-            activityItem.put("name", recommendedActivity.get("name"));
-            activityItem.put("tags", recommendedActivity.get("tags").toString());
-            activityItem.put("latitude", recommendedActivity.get("latitude"));
-            activityItem.put("longitude", recommendedActivity.get("longitude"));
-            dateItems.add(activityItem);
-        } else {
-            Map<String, Object> activityItem = new HashMap<>();
-            activityItem.put("name", "Recommended Activity: No recommendation found");
-            activityItem.put("tags", "");
-            activityItem.put("latitude", "");
-            activityItem.put("longitude", "");
+            activityItem.put("name", recommendedActivityName);
+            activityItem.put("tags", recommendedActivityTags);
+            activityItem.put("latitude", recommendedActivityLatitude);
+            activityItem.put("longitude", recommendedActivityLongitude);
             dateItems.add(activityItem);
         }
 
@@ -130,23 +116,62 @@ public class ResultActivity extends AppCompatActivity {
     private void saveResult(String name) {
         Intent intent = getIntent();
 
-        HashMap<String, Object> recommendedRestaurant = (HashMap<String, Object>) intent.getSerializableExtra("recommendedRestaurant");
-        HashMap<String, Object> recommendedCafe = (HashMap<String, Object>) intent.getSerializableExtra("recommendedCafe");
-        HashMap<String, Object> recommendedActivity = (HashMap<String, Object>) intent.getSerializableExtra("recommendedActivity");
+        String recommendedRestaurantName = intent.getStringExtra("recommendedRestaurantName");
+        ArrayList<String> recommendedRestaurantTags = intent.getStringArrayListExtra("recommendedRestaurantTags");
+        double recommendedRestaurantLatitude = intent.getDoubleExtra("recommendedRestaurantLatitude", 0);
+        double recommendedRestaurantLongitude = intent.getDoubleExtra("recommendedRestaurantLongitude", 0);
+
+        String recommendedCafeName = intent.getStringExtra("recommendedCafeName");
+        ArrayList<String> recommendedCafeTags = intent.getStringArrayListExtra("recommendedCafeTags");
+        double recommendedCafeLatitude = intent.getDoubleExtra("recommendedCafeLatitude", 0);
+        double recommendedCafeLongitude = intent.getDoubleExtra("recommendedCafeLongitude", 0);
+
+        String recommendedActivityName = intent.getStringExtra("recommendedActivityName");
+        ArrayList<String> recommendedActivityTags = intent.getStringArrayListExtra("recommendedActivityTags");
+        double recommendedActivityLatitude = intent.getDoubleExtra("recommendedActivityLatitude", 0);
+        double recommendedActivityLongitude = intent.getDoubleExtra("recommendedActivityLongitude", 0);
 
         Map<String, Object> result = new HashMap<>();
         result.put("name", name);
-        result.put("recommendedRestaurant", recommendedRestaurant);
-        result.put("recommendedCafe", recommendedCafe);
-        result.put("recommendedActivity", recommendedActivity);
 
-        db.collection("savedResults")
-                .add(result)
-                .addOnSuccessListener(documentReference -> {
-                    // 저장 성공 시 처리할 작업
-                })
-                .addOnFailureListener(e -> {
-                    // 저장 실패 시 처리할 작업
-                });
+        if (recommendedRestaurantName != null) {
+            Map<String, Object> recommendedRestaurant = new HashMap<>();
+            recommendedRestaurant.put("name", recommendedRestaurantName);
+            recommendedRestaurant.put("tags", recommendedRestaurantTags);
+            recommendedRestaurant.put("location", new GeoPoint(recommendedRestaurantLatitude, recommendedRestaurantLongitude));
+            result.put("recommendedRestaurant", recommendedRestaurant);
+        }
+
+        if (recommendedCafeName != null) {
+            Map<String, Object> recommendedCafe = new HashMap<>();
+            recommendedCafe.put("name", recommendedCafeName);
+            recommendedCafe.put("tags", recommendedCafeTags);
+            recommendedCafe.put("location", new GeoPoint(recommendedCafeLatitude, recommendedCafeLongitude));
+            result.put("recommendedCafe", recommendedCafe);
+        }
+
+        if (recommendedActivityName != null) {
+            Map<String, Object> recommendedActivity = new HashMap<>();
+            recommendedActivity.put("name", recommendedActivityName);
+            recommendedActivity.put("tags", recommendedActivityTags);
+            recommendedActivity.put("location", new GeoPoint(recommendedActivityLatitude, recommendedActivityLongitude));
+            result.put("recommendedActivity", recommendedActivity);
+        }
+
+        if (currentUser != null) {
+            db.collection("users").document(currentUser.getUid())
+                    .collection("LastDates")
+                    .add(result)
+                    .addOnSuccessListener(documentReference -> {
+                        // 저장 성공 시 처리할 작업
+                        Toast.makeText(ResultActivity.this, "결과가 저장되었습니다.", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        // 저장 실패 시 처리할 작업
+                        Toast.makeText(ResultActivity.this, "저장 실패: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+        } else {
+            Toast.makeText(ResultActivity.this, "로그인 정보가 없습니다.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

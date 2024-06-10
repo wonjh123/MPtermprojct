@@ -7,10 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,7 +37,6 @@ public class LoginPage extends AppCompatActivity {
     private SignInButton signInButton;
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
-    private ActivityResultLauncher<Intent> activityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,27 +45,15 @@ public class LoginPage extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        if (mAuth.getCurrentUser() != null) {
+            // 이미 로그인된 사용자가 있으면 메인 화면으로 이동
+            Intent intent = new Intent(LoginPage.this, NaviActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
         initEmailPasswordLogin();
         initGoogleSignIn();
-
-        signInButton = findViewById(R.id.sign_in_button);
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(LoginPage.this);
-                if (account != null) {
-                    // 이미 로그인된 계정이 있다면 로그아웃
-                    mGoogleSignInClient.signOut().addOnCompleteListener(LoginPage.this, new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            signInWithGoogle();
-                        }
-                    });
-                } else {
-                    signInWithGoogle();
-                }
-            }
-        });
     }
 
     private void initEmailPasswordLogin() {
@@ -134,35 +117,49 @@ public class LoginPage extends AppCompatActivity {
     }
 
     private void initGoogleSignIn() {
-        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        if (result.getResultCode() == RESULT_OK) {
-                            Intent intent = result.getData();
-                            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(intent);
-                            try {
-                                GoogleSignInAccount account = task.getResult(ApiException.class);
-                                Toast.makeText(getApplicationContext(), "Login with Google successfully", Toast.LENGTH_LONG).show();
-                                firebaseAuthWithGoogle(account);
-                            } catch (ApiException e) {
-                                Toast.makeText(getApplicationContext(), "Google sign in Failed", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                    }
-                });
-
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        mAuth = FirebaseAuth.getInstance();
+
+        signInButton = findViewById(R.id.sign_in_button);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(LoginPage.this);
+                if (account != null) {
+                    mGoogleSignInClient.signOut().addOnCompleteListener(LoginPage.this, new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            signInWithGoogle();
+                        }
+                    });
+                } else {
+                    signInWithGoogle();
+                }
+            }
+        });
     }
 
     private void signInWithGoogle() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        activityResultLauncher.launch(signInIntent);
+        startActivityForResult(signInIntent, 9001);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 9001) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account);
+            } catch (ApiException e) {
+                Toast.makeText(getApplicationContext(), "Google sign in Failed", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
@@ -176,6 +173,7 @@ public class LoginPage extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Complete", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(getApplicationContext(), NaviActivity.class);
                             startActivity(intent);
+                            finish();
                         } else {
                             Toast.makeText(getApplicationContext(), "Authentication Failed", Toast.LENGTH_LONG).show();
                         }

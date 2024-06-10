@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 meta-data#com.google.android.geo.API_KEY
-INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:55:9-58:15
+INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:56:9-59:15
 	android:value
 		INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml
-		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:57:13-50
+		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:58:13-50
 	android:name
-		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:56:13-58
+		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:57:13-58
 manifest
-ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:2:1-63:12
-INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:2:1-63:12
-INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:2:1-63:12
-INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:2:1-63:12
+ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:2:1-64:12
 MERGED from [androidx.databinding:viewbinding:8.2.2] /Users/wonjihyeon/.gradle/caches/transforms-3/3af18fcd0d21091be995ddd159c8aa01/transformed/jetified-viewbinding-8.2.2/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.11.0] /Users/wonjihyeon/.gradle/caches/transforms-3/c20ef22c0eb53b5d1c8b698da0e010da/transformed/material-1.11.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/wonjihyeon/.gradle/caches/transforms-3/4140bd3fa282a83800e7925434e48c7a/transformed/constraintlayout-2.1.4/AndroidManifest.xml:2:1-11:12
@@ -137,8 +137,8 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:22.0.0] /U
 	android:name
 		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:7:22-64
 application
-ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:9:5-61:19
-INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:9:5-61:19
+ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:9:5-62:19
+INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:9:5-62:19
 MERGED from [com.google.android.material:material:1.11.0] /Users/wonjihyeon/.gradle/caches/transforms-3/c20ef22c0eb53b5d1c8b698da0e010da/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] /Users/wonjihyeon/.gradle/caches/transforms-3/c20ef22c0eb53b5d1c8b698da0e010da/transformed/material-1.11.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] /Users/wonjihyeon/.gradle/caches/transforms-3/4140bd3fa282a83800e7925434e48c7a/transformed/constraintlayout-2.1.4/AndroidManifest.xml:9:5-20
@@ -279,42 +279,46 @@ activity#kr.ac.gachon.recommendate.LastDatesActivity
 ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:37:9-54
 	android:name
 		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:37:19-52
+activity#kr.ac.gachon.recommendate.LastDatesCourseDetail
+ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:38:9-58
+	android:name
+		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:38:19-56
 activity#kr.ac.gachon.recommendate.LoginPage
-ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:40:9-46:20
+ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:41:9-47:20
 	android:exported
-		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:41:13-36
+		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:42:13-36
 	android:name
-		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:40:19-44
+		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:41:19-44
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:42:13-45:29
+ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:43:13-46:29
 action#android.intent.action.MAIN
-ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:43:17-69
+ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:44:17-69
 	android:name
-		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:43:25-66
+		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:44:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:44:17-77
+ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:45:17-77
 	android:name
-		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:44:27-74
+		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:45:27-74
 activity#kr.ac.gachon.recommendate.Register
-ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:47:9-46
+ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:48:9-46
 	android:name
-		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:47:19-43
+		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:48:19-43
 activity#kr.ac.gachon.recommendate.FindPWPage
-ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:48:9-47
+ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:49:9-47
 	android:name
-		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:48:19-45
+		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:49:19-45
 activity#kr.ac.gachon.recommendate.ShowCourseList
-ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:51:9-51
+ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:52:9-51
 	android:name
-		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:51:19-49
+		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:52:19-49
 activity#kr.ac.gachon.recommendate.CourseDetail
-ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:52:9-49
+ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:53:9-49
 	android:name
-		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:52:19-47
+		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:53:19-47
 activity#kr.ac.gachon.recommendate.LocationMap
-ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:59:9-48
+ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:60:9-48
 	android:name
-		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:59:19-46
+		ADDED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml:60:19-46
 uses-sdk
 INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/wonjihyeon/Documents/GitHub/MPtermproject/app/src/main/AndroidManifest.xml
