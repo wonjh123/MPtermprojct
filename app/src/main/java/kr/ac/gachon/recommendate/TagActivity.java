@@ -2,20 +2,24 @@ package kr.ac.gachon.recommendate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,50 +33,35 @@ public class TagActivity extends AppCompatActivity {
     private List<String> selectedCafeTags = new ArrayList<>();
     private List<String> selectedActivityTags = new ArrayList<>();
     private FirebaseFirestore db;
+    private FirebaseUser currentUser;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tag);
 
         db = FirebaseFirestore.getInstance();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         TextView headerTitle = findViewById(R.id.text_header_title);
         headerTitle.setText("오늘의 분위기는 어떤가요?");
 
         ImageButton btnArrowBack = findViewById(R.id.btn_arrow_back);
-        btnArrowBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish(); // 현재 액티비티 종료, 이전 화면으로 돌아감
-            }
-        });
+        btnArrowBack.setOnClickListener(v -> finish());
 
         Button btnGetResult = findViewById(R.id.btn_get_result);
-        btnGetResult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getRecommendation();
-            }
-        });
+        btnGetResult.setOnClickListener(v -> getRecommendation());
 
-        List<String> restaurantTags = getRestaurantTags();
-        RecyclerView restaurantRecyclerView = findViewById(R.id.recyclerView1);
-        restaurantRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        TagToggleAdapter restaurantAdapter = new TagToggleAdapter(restaurantTags, selectedRestaurantTags);
-        restaurantRecyclerView.setAdapter(restaurantAdapter);
+        setupRecyclerView(R.id.recyclerView1, getRestaurantTags(), selectedRestaurantTags);
+        setupRecyclerView(R.id.recyclerView2, getCafeTags(), selectedCafeTags);
+        setupRecyclerView(R.id.recyclerView3, getActivityTags(), selectedActivityTags);
+    }
 
-        List<String> cafeTags = getCafeTags();
-        RecyclerView cafeRecyclerView = findViewById(R.id.recyclerView2);
-        cafeRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        TagToggleAdapter cafeAdapter = new TagToggleAdapter(cafeTags, selectedCafeTags);
-        cafeRecyclerView.setAdapter(cafeAdapter);
-
-        List<String> activityTags = getActivityTags();
-        RecyclerView activityRecyclerView = findViewById(R.id.recyclerView3);
-        activityRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        TagToggleAdapter activityAdapter = new TagToggleAdapter(activityTags, selectedActivityTags);
-        activityRecyclerView.setAdapter(activityAdapter);
+    private void setupRecyclerView(int recyclerViewId, List<String> tags, List<String> selectedTags) {
+        RecyclerView recyclerView = findViewById(recyclerViewId);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        TagToggleAdapter adapter = new TagToggleAdapter(tags, selectedTags);
+        recyclerView.setAdapter(adapter);
     }
 
     private List<String> getRestaurantTags() {
@@ -81,7 +70,6 @@ public class TagActivity extends AppCompatActivity {
         restaurantTags.add("#중식");
         restaurantTags.add("#일식");
         restaurantTags.add("#양식");
-        // 필요에 따라 데이터를 추가합니다.
         return restaurantTags;
     }
 
@@ -90,7 +78,6 @@ public class TagActivity extends AppCompatActivity {
         cafeTags.add("#베이커리");
         cafeTags.add("#카공");
         cafeTags.add("#대형 카페");
-        // 필요에 따라 데이터를 추가합니다.
         return cafeTags;
     }
 
@@ -101,7 +88,6 @@ public class TagActivity extends AppCompatActivity {
         activityTags.add("#방탈출 카페");
         activityTags.add("#보드게임 카페");
         activityTags.add("#대형 카페");
-        // 필요에 따라 데이터를 추가합니다.
         return activityTags;
     }
 
@@ -116,13 +102,8 @@ public class TagActivity extends AppCompatActivity {
                 for (QueryDocumentSnapshot document : task.getResult()) {
                     Map<String, Object> data = document.getData();
                     List<String> tags = (List<String>) data.get("tags");
-                    if (tags != null && !tags.isEmpty()) {
-                        for (String tag : selectedRestaurantTags) {
-                            if (tags.contains(tag)) {
-                                restaurantResults.add(data);
-                                break;
-                            }
-                        }
+                    if (tags != null && !tags.isEmpty() && containsAny(tags, selectedRestaurantTags)) {
+                        restaurantResults.add(data);
                     }
                 }
 
@@ -132,13 +113,8 @@ public class TagActivity extends AppCompatActivity {
                         for (QueryDocumentSnapshot document : task2.getResult()) {
                             Map<String, Object> data = document.getData();
                             List<String> tags = (List<String>) data.get("tags");
-                            if (tags != null && !tags.isEmpty()) {
-                                for (String tag : selectedCafeTags) {
-                                    if (tags.contains(tag)) {
-                                        cafeResults.add(data);
-                                        break;
-                                    }
-                                }
+                            if (tags != null && !tags.isEmpty() && containsAny(tags, selectedCafeTags)) {
+                                cafeResults.add(data);
                             }
                         }
 
@@ -148,13 +124,8 @@ public class TagActivity extends AppCompatActivity {
                                 for (QueryDocumentSnapshot document : task3.getResult()) {
                                     Map<String, Object> data = document.getData();
                                     List<String> tags = (List<String>) data.get("tags");
-                                    if (tags != null && !tags.isEmpty()) {
-                                        for (String tag : selectedActivityTags) {
-                                            if (tags.contains(tag)) {
-                                                activityResults.add(data);
-                                                break;
-                                            }
-                                        }
+                                    if (tags != null && !tags.isEmpty() && containsAny(tags, selectedActivityTags)) {
+                                        activityResults.add(data);
                                     }
                                 }
 
@@ -165,16 +136,31 @@ public class TagActivity extends AppCompatActivity {
 
                                 // Pass the recommendation to the result activity
                                 Intent intent = new Intent(TagActivity.this, ResultActivity.class);
-                                intent.putExtra("recommendedRestaurant", convertMapToHashMap(recommendedRestaurant));
-                                intent.putExtra("recommendedCafe", convertMapToHashMap(recommendedCafe));
-                                intent.putExtra("recommendedActivity", convertMapToHashMap(recommendedActivity));
+                                putRecommendationIntoIntent(intent, "recommendedRestaurant", recommendedRestaurant);
+                                putRecommendationIntoIntent(intent, "recommendedCafe", recommendedCafe);
+                                putRecommendationIntoIntent(intent, "recommendedActivity", recommendedActivity);
                                 startActivity(intent);
+                            } else {
+                                Log.e("TagActivity", "Error getting documents: ", task3.getException());
                             }
                         });
+                    } else {
+                        Log.e("TagActivity", "Error getting documents: ", task2.getException());
                     }
                 });
+            } else {
+                Log.e("TagActivity", "Error getting documents: ", task.getException());
             }
         });
+    }
+
+    private boolean containsAny(List<String> tags, List<String> selectedTags) {
+        for (String tag : selectedTags) {
+            if (tags.contains(tag)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private Map<String, Object> getRandomItem(List<Map<String, Object>> items) {
@@ -183,16 +169,62 @@ public class TagActivity extends AppCompatActivity {
         return items.get(random.nextInt(items.size()));
     }
 
-    private HashMap<String, Object> convertMapToHashMap(Map<String, Object> map) {
-        if (map == null) return null;
-        HashMap<String, Object> hashMap = new HashMap<>(map);
-        Object location = map.get("location");
-        if (location instanceof GeoPoint) {
-            GeoPoint geoPoint = (GeoPoint) location;
-            hashMap.put("latitude", geoPoint.getLatitude());
-            hashMap.put("longitude", geoPoint.getLongitude());
-            hashMap.remove("location");
+    private void putRecommendationIntoIntent(Intent intent, String key, Map<String, Object> recommendation) {
+        if (recommendation != null) {
+            intent.putExtra(key + "Name", (String) recommendation.get("name"));
+            intent.putStringArrayListExtra(key + "Tags", (ArrayList<String>) recommendation.get("tags"));
+            GeoPoint location = (GeoPoint) recommendation.get("location");
+            intent.putExtra(key + "Latitude", location.getLatitude());
+            intent.putExtra(key + "Longitude", location.getLongitude());
         }
-        return hashMap;
+    }
+
+    private class TagToggleAdapter extends RecyclerView.Adapter<TagToggleAdapter.TagViewHolder> {
+
+        private List<String> tagList;
+        private List<String> selectedTags;
+
+        TagToggleAdapter(List<String> tagList, List<String> selectedTags) {
+            this.tagList = tagList;
+            this.selectedTags = selectedTags;
+        }
+
+        @NonNull
+        @Override
+        public TagViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tag_item, parent, false);
+            return new TagViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull TagViewHolder holder, int position) {
+            String tag = tagList.get(position);
+            holder.tagText.setText(tag);
+            holder.itemView.setSelected(selectedTags.contains(tag));
+
+            holder.itemView.setOnClickListener(v -> {
+                if (selectedTags.contains(tag)) {
+                    selectedTags.remove(tag);
+                    holder.itemView.setSelected(false);
+                } else {
+                    selectedTags.add(tag);
+                    holder.itemView.setSelected(true);
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return tagList.size();
+        }
+
+        class TagViewHolder extends RecyclerView.ViewHolder {
+            TextView tagText;
+
+            TagViewHolder(@NonNull View itemView) {
+                super(itemView);
+                tagText = itemView.findViewById(R.id.tag_text);
+            }
+        }
     }
 }

@@ -60,6 +60,10 @@
         "source": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/drawable/button_stroke_bgr_white.xml"
     },
     {
+        "merged": "kr.ac.gachon.recommendate.app-merged_res-43:/layout_item_tag.xml.flat",
+        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/item_tag.xml"
+    },
+    {
         "merged": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/drawable_arrow_back_ios_24px.xml.flat",
         "source": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/drawable/arrow_back_ios_24px.xml"
     },
@@ -82,10 +86,6 @@
     {
         "merged": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/layout_course_detail.xml.flat",
         "source": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-main-45:/layout/course_detail.xml"
-    },
-    {
-        "merged": "kr.ac.gachon.recommendate.app-merged_res-43:/layout_course_detail.xml.flat",
-        "source": "kr.ac.gachon.recommendate.app-main-45:/layout/course_detail.xml"
     },
     {
         "merged": "/Users/wonjihyeon/.gradle/daemon/8.2/kr.ac.gachon.recommendate.app-merged_res-43:/drawable_gradient_primary_dark.xml.flat",

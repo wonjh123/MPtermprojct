@@ -80,24 +80,17 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        btnOpenMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), LocationMap.class);
-                startActivity(intent);
-            }
+        btnOpenMap.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), LocationMap.class);
+            startActivity(intent);
         });
 
         // 2. 추천 버튼
         btnOpenRecommend = rootView.findViewById(R.id.btn_open_recommend);
-
-        btnOpenRecommend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // RecommendActivity로 이동하는 인텐트 생성
-                Intent intent = new Intent(getActivity(), RecommendActivity.class);
-                startActivity(intent);
-            }
+        btnOpenRecommend.setOnClickListener(v -> {
+            // RecommendActivity로 이동하는 인텐트 생성
+            Intent intent = new Intent(getActivity(), RecommendActivity.class);
+            startActivity(intent);
         });
 
         listView = rootView.findViewById(R.id.list_recommend_dates);
@@ -106,15 +99,12 @@ public class HomeFragment extends Fragment {
         RecommendDateAdapter adapter = new RecommendDateAdapter(getActivity(), recommendDates);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                RecommendDate selectedDate = recommendDates.get(position); // 클릭된 아이템 가져오기
-                Intent intent = new Intent(getActivity(), CourseDetail.class); // 다음 액티비티로 전환할 인텐트 생성
-                // 전달할 데이터 추가
-                intent.putExtra("courseId", selectedDate.getCourseId());
-                startActivity(intent); // 다음 액티비티로 전환
-            }
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            RecommendDate selectedDate = recommendDates.get(position); // 클릭된 아이템 가져오기
+            Intent intent = new Intent(getActivity(), CourseDetail.class); // 다음 액티비티로 전환할 인텐트 생성
+            // 전달할 데이터 추가
+            intent.putExtra("courseName", selectedDate.getName());
+            startActivity(intent); // 다음 액티비티로 전환
         });
 
         loadRecommendDates();
@@ -126,10 +116,9 @@ public class HomeFragment extends Fragment {
         db.collection("courses").get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 for (QueryDocumentSnapshot document : task.getResult()) {
-                    String courseId = document.getId();
                     String name = document.getString("name");
-                    recommendDates.add(new RecommendDate(courseId, name));
-                    Log.d(TAG, "Course ID: " + courseId + ", Name: " + name);  // 로깅 추가
+                    recommendDates.add(new RecommendDate(name));
+                    Log.d(TAG, "Course Name: " + name);  // 로깅 추가
                 }
                 ((ArrayAdapter) listView.getAdapter()).notifyDataSetChanged();
                 Log.d(TAG, "Data loaded, total items: " + recommendDates.size());  // 로깅 추가
@@ -140,16 +129,10 @@ public class HomeFragment extends Fragment {
     }
 
     public static class RecommendDate {
-        String courseId;
         String name;
 
-        public RecommendDate(String courseId, String name) {
-            this.courseId = courseId;
+        public RecommendDate(String name) {
             this.name = name;
-        }
-
-        public String getCourseId() {
-            return courseId;
         }
 
         public String getName() {
@@ -163,7 +146,7 @@ public class HomeFragment extends Fragment {
         private final List<RecommendDate> dates;
 
         public RecommendDateAdapter(Context context, List<RecommendDate> dates) {
-            super(context, R.layout.custom_listview, dates);
+            super(context, R.layout.last_dates_list_item, dates);
             this.context = context;
             this.dates = dates;
         }
@@ -173,10 +156,10 @@ public class HomeFragment extends Fragment {
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.custom_listview, parent, false);
+                convertView = inflater.inflate(R.layout.last_dates_list_item, parent, false);
             }
 
-            TextView nameTextView = convertView.findViewById(R.id.course_name);
+            TextView nameTextView = convertView.findViewById(R.id.keyword);
             RecommendDate date = dates.get(position);
             nameTextView.setText(date.getName());
 
